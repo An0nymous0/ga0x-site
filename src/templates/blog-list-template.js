@@ -1,20 +1,21 @@
 import React from "react"
-import "./mystyles.scss"
-import "./global.css"
-import { Link, graphql } from "gatsby"
+import { graphql, Link } from "gatsby"
 import Layout from "../layouts"
-import styles from "../styles"
-import presets from "../utils/presets"
-import { rhythm, scale } from "../utils/typography"
 
-class Index extends React.Component {
+export default class BlogList extends React.Component {
   render() {
     const posts = this.props.data.allMarkdownRemark.edges
 
+    const { currentPage, numPages } = this.props.pageContext
+    const isFirst = currentPage === 1
+    const isLast = currentPage === numPages
+    const prevPage = currentPage - 1 === 1 ? "/blog" : (currentPage - 1).toString()
+    const nextPage = (currentPage + 1).toString()
     return (
-      <Layout location={this.props.location}>
-        {posts.map(post => (
-          <div className="columns" key={post.node.id}>
+      <Layout>
+
+          {posts.map(post => (
+            <div className="columns"  key={post.node.id}>
             <div className="column is-full">
               <div className="card">
                 <div className="card-content">
@@ -30,18 +31,22 @@ class Index extends React.Component {
                 </div>
               </div>
             </div>
-          </div>
-        ))}
-        {/*<div className="columns is-mobile is-centered">*/}
-        {/*  <div className="column is-half">*/}
-        {/*      <code className="html">is-half</code><br/>*/}
-        {/*  </div>*/}
-        {/*</div>*/}
-        <div className="columns is-centered">
-          <div className="column" style={{textAlign:'center'}}>
-            <Link to="/blog/2" rel="next" className="button is-primary is-light">
-              更多
-            </Link>
+            </div>
+          ))}
+        <div className="columns">
+          <div className="column is-full">
+            <nav className="pagination is-centered" role="navigation" aria-label="pagination">
+              {!isFirst && (
+                <Link to={prevPage} rel="prev" className="pagination-previous">
+                  ← Previous Page
+                </Link>
+              )}
+              {!isLast && (
+                <Link to={nextPage} rel="next" className="pagination-next">
+                  Next Page →
+                </Link>
+              )}
+            </nav>
           </div>
         </div>
       </Layout>
@@ -49,13 +54,12 @@ class Index extends React.Component {
   }
 }
 
-export default Index
-
-export const pageQuery = graphql`
-  query {
+export const blogListQuery = graphql`
+  query blogListQuery($skip: Int!, $limit: Int!) {
     allMarkdownRemark(
-      limit: 10
       sort: { fields: [frontmatter___date], order: DESC }
+      limit: $limit
+      skip: $skip
       filter: { frontmatter: { draft: { ne: true }, example: { ne: true } } }
     ) {
       edges {
