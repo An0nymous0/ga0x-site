@@ -3,12 +3,14 @@ import { Link, StaticQuery, graphql } from "gatsby"
 import { scale } from "../utils/typography"
 import styles from "../styles"
 import Logo from "../images/logo.png"
+import Image from "../components/image"
 
 import "typeface-space-mono"
 import "typeface-spectral"
 
 import "prismjs/themes/prism-solarizedlight.css"
 import "prismjs/plugins/line-numbers/prism-line-numbers.css"
+import Img from "gatsby-image"
 
 class Layout extends React.Component {
   render() {
@@ -22,10 +24,22 @@ class Layout extends React.Component {
                 homepage
               }
             }
+            logoImage: file(relativePath: { eq: "logo.png" }) {
+              childImageSharp {
+                # fluid(maxWidth: 114,maxHeight:28) {
+                #   ...GatsbyImageSharpFluid
+                # }
+                fixed(width: 117,height:28) {
+                  # Choose either the fragment including a small base64ed image, a traced placeholder SVG, or one without.
+                  ...GatsbyImageSharpFixed
+                }
+              }
+            }
           }
         `}
         render={data => {
           const { author, homepage } = data.site.siteMetadata
+          const logoImage = data.logoImage
           return (
             // <div>
             //   <div {...styles.container} {...styles.verticalPadding}>
@@ -70,6 +84,9 @@ class Layout extends React.Component {
                 <div className="navbar-brand">
                   <Link className="navbar-item" to="/">
                     <img src={Logo} width="112" height="28"/>
+                    {/*<Img fixed={data.logoImage.childImageSharp.fixed} loading="eager" backgroundColor="false" />*/}
+                    {/*<div>{data.logoImage.childImageSharp.fluid}</div>*/}
+                    {/*<Image />*/}
                   </Link>
 
                   <a role="button" className="navbar-burger burger" aria-label="menu" aria-expanded="false"
