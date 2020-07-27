@@ -2,6 +2,7 @@ import React from "react"
 import { Link, StaticQuery, graphql } from "gatsby"
 import { scale } from "../utils/typography"
 import styles from "../styles"
+import Logo from "../images/logo.png"
 
 import "typeface-space-mono"
 import "typeface-spectral"
@@ -68,7 +69,7 @@ class Layout extends React.Component {
               <nav className="navbar" role="navigation" aria-label="main navigation">
                 <div className="navbar-brand">
                   <Link className="navbar-item" to="/">
-                    <img src="https://bulma.io/images/bulma-logo.png" width="112" height="28"/>
+                    <img src={Logo} width="112" height="28"/>
                   </Link>
 
                   <a role="button" className="navbar-burger burger" aria-label="menu" aria-expanded="false"
@@ -82,48 +83,48 @@ class Layout extends React.Component {
                 <div id="navbarBasicExample" className="navbar-menu">
                   <div className="navbar-start">
                     <Link className="navbar-item" to="/">
-                      Home
+                      首页
                     </Link>
 
-                    <a className="navbar-item">
-                      Documentation
-                    </a>
+                    {/*<a className="navbar-item">*/}
+                    {/*  Documentation*/}
+                    {/*</a>*/}
 
-                    <div className="navbar-item has-dropdown is-hoverable">
-                      <a className="navbar-link">
-                        More
-                      </a>
+                    {/*<div className="navbar-item has-dropdown is-hoverable">*/}
+                    {/*  <a className="navbar-link">*/}
+                    {/*    More*/}
+                    {/*  </a>*/}
 
-                      <div className="navbar-dropdown">
-                        <a className="navbar-item">
-                          About
-                        </a>
-                        <a className="navbar-item">
-                          Jobs
-                        </a>
-                        <a className="navbar-item">
-                          Contact
-                        </a>
-                        <hr className="navbar-divider"/>
-                          <a className="navbar-item">
-                            Report an issue
-                          </a>
-                      </div>
-                    </div>
+                    {/*  <div className="navbar-dropdown">*/}
+                    {/*    <a className="navbar-item">*/}
+                    {/*      About*/}
+                    {/*    </a>*/}
+                    {/*    <a className="navbar-item">*/}
+                    {/*      Jobs*/}
+                    {/*    </a>*/}
+                    {/*    <a className="navbar-item">*/}
+                    {/*      Contact*/}
+                    {/*    </a>*/}
+                    {/*    <hr className="navbar-divider"/>*/}
+                    {/*      <a className="navbar-item">*/}
+                    {/*        Report an issue*/}
+                    {/*      </a>*/}
+                    {/*  </div>*/}
+                    {/*</div>*/}
                   </div>
 
-                  <div className="navbar-end">
-                    <div className="navbar-item">
-                      <div className="buttons">
-                        <a className="button is-primary">
-                          <strong>Sign up</strong>
-                        </a>
-                        <a className="button is-light">
-                          Log in
-                        </a>
-                      </div>
-                    </div>
-                  </div>
+                  {/*<div className="navbar-end">*/}
+                  {/*  <div className="navbar-item">*/}
+                  {/*    <div className="buttons">*/}
+                  {/*      <a className="button is-primary">*/}
+                  {/*        <strong>Sign up</strong>*/}
+                  {/*      </a>*/}
+                  {/*      <a className="button is-light">*/}
+                  {/*        Log in*/}
+                  {/*      </a>*/}
+                  {/*    </div>*/}
+                  {/*  </div>*/}
+                  {/*</div>*/}
                 </div>
               </nav>
               <div className="column is-6 is-offset-3">

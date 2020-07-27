@@ -39,7 +39,7 @@ class Index extends React.Component {
         {/*</div>*/}
         <div className="columns is-centered">
           <div className="column" style={{textAlign:'center'}}>
-            <Link to="/blog/2" rel="next" className="button is-primary is-light">
+            <Link to="/blog" rel="next" className="button is-primary is-light">
               更多
             </Link>
           </div>
