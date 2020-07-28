@@ -65,7 +65,7 @@ export const pageQuery = graphql`
           }
           frontmatter {
             title
-            date(formatString: "YYYY-DD-MM")
+            date(formatString: "YYYY-MM-DD")
           }
           excerpt
           id
