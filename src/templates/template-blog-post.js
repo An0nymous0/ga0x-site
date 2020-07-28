@@ -1,18 +1,20 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
 import Img from "gatsby-image"
-import rehypeReact from "rehype-react"
+import rehype2react from "rehype-react"
 
 import styles from "../styles"
 import Counter from "../components/Counter"
 import Layout from "../layouts"
 import { rhythm, scale } from "../utils/typography"
 
+import "./template-blog-post.scss"
 import "katex/dist/katex.min.css"
+import "github-markdown-css/github-markdown.css"
 
-const renderAst = new rehypeReact({
+const renderAst = new rehype2react({
   createElement: React.createElement,
-  components: { "interactive-counter": Counter },
+  components: { "interactive-counter": Counter }
 }).Compiler
 
 class BlogPostRoute extends React.Component {
@@ -36,7 +38,7 @@ class BlogPostRoute extends React.Component {
         <span
           css={{
             fontStyle: `normal`,
-            textAlign: `left`,
+            textAlign: `left`
           }}
         >
           tagged {tags}
@@ -48,14 +50,14 @@ class BlogPostRoute extends React.Component {
       <Layout location={this.props.location}>
         <div
           css={{
-            maxWidth: rhythm(26),
+            maxWidth: rhythm(26)
           }}
         >
           <header>
             <h1
               css={{
                 marginBottom: rhythm(1 / 6),
-                color: post.frontmatter.shadow,
+                color: post.frontmatter.shadow
               }}
             >
               {post.frontmatter.title}
@@ -64,7 +66,7 @@ class BlogPostRoute extends React.Component {
               css={{
                 ...scale(-1 / 5),
                 display: `block`,
-                color: `${styles.colors.light}`,
+                color: `${styles.colors.light}`
               }}
             >
               {post.timeToRead} min read &middot; {tagsSection}
@@ -72,23 +74,21 @@ class BlogPostRoute extends React.Component {
           </header>
 
           <h2>Contents</h2>
-          <div
-            dangerouslySetInnerHTML={{ __html: post.tableOfContents }}
-            className="content"
-          />
-
-          {renderAst(post.htmlAst)}
+          <div className="content">
+            <div dangerouslySetInnerHTML={{ __html: post.tableOfContents }}/>
+            {renderAst(post.htmlAst)}
+          </div>
           <hr
             css={{
               marginBottom: rhythm(1),
-              marginTop: rhythm(2),
+              marginTop: rhythm(2)
             }}
           />
           <p
             css={{
               marginBottom: rhythm(4 / 4),
               display: `flex`,
-              alignItems: `center`,
+              alignItems: `center`
             }}
           >
             <Img
@@ -98,21 +98,21 @@ class BlogPostRoute extends React.Component {
                 borderRadius: `100%`,
                 float: `left`,
                 marginRight: rhythm(3 / 4),
-                marginBottom: 0,
+                marginBottom: 0
               }}
               Tag="span"
             />
             <span
               css={{
                 color: styles.colors.light,
-                ...scale(-1 / 5),
+                ...scale(-1 / 5)
               }}
             >
               <small
                 css={{
                   fontWeight: `bold`,
                   color: styles.colors.text,
-                  textTransform: `uppercase`,
+                  textTransform: `uppercase`
                 }}
               >
                 {post.frontmatter.author.id}
@@ -148,7 +148,7 @@ export const pageQuery = graphql`
           avatar {
             children {
               ... on ImageSharp {
-                fixed(width: 50, height: 50, quality: 75, grayscale: true) {
+                fixed(width: 50, height: 50, quality: 75) {
                   ...GatsbyImageSharpFixed
                 }
               }

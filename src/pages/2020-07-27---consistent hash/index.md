@@ -2,7 +2,7 @@
 title: "了解一致性哈希"
 date: "2020-07-27"
 draft: false
-author: Jay Gatsby
+author: Xu Gao
 tags:
   - Java
   - 算法
@@ -17,7 +17,7 @@ tags:
 最简单的办法就是：
 **Hash(key) % N**，key是要存储的数据，N是Redis的数量，在这里N=4。
 
-![](http://r.ga0x.com/image/e7868eb788f5eaa401fed1fe13dba03b.webp)
+![Alt text here](1.jpg)
 
 上面的方法看起来比较美好，但是一旦扩容就会遇到问题。假设说我们现在4台Redis不够用了要加一台那么我们的算法就变成了**Hash(key) % 5**；导致大部分key都会找不到。如果当前并发量比较大就会发生我们常说的**缓存雪崩**。
 
@@ -27,17 +27,17 @@ tags:
 
 一致性HASH算法可以很好的解决我们上面出现问题，原理也是用取模的方法，不过一致性HASH算法是对**2^32**取模，简单来说一致性HASH是将哈希值形成一个圆环，范围是 0 - 2^32；整个HASH环如下
 
-![](http://r.ga0x.com/image/2203bec346f4c0e14f49cbb518ff2aa0.jpg)
+![](2.jpg)
 
 下一步是将我们的服务器进行HASH在环上找到自己的位置（可以是服务器+端口后对2^32取模），假设总共有4台服务，在环上的位置如下：
 
-![](http://r.ga0x.com/image/9c2369d4dac068f80b17cf7650c34a32.jpg)
+![](3.jpg)
 
 接下来是如何让数据定位到具体的Node上。
 
 假设我们有 A ，B ，C ，D四个数据对象经过HASH之后可能是环上的某一个定位但不是Node位置，那么怎么办呢，我们顺时针往下走遇到的第一个Node就是我们要存储的服务器，如下图所示：
 
-![](http://r.ga0x.com/image/56fa3db7f1e1ec6b60d511b65f06294e.jpg)
+![](4.jpg)
 
 如果增加或删除服务器只会影响**部分数据**
 
