@@ -5,6 +5,7 @@ import Layout from "../layouts"
 import styles from "../styles"
 import presets from "../utils/presets"
 import { rhythm, scale } from "../utils/typography"
+import SEO from "../components/seo"
 
 class Index extends React.Component {
   render() {
@@ -12,6 +13,7 @@ class Index extends React.Component {
 
     return (
       <Layout location={this.props.location}>
+        <SEO title="Home" />
         <div>
           <h1
             css={{

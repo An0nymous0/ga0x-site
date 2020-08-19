@@ -11,6 +11,7 @@ import { rhythm, scale } from "../utils/typography"
 import "./template-blog-post.scss"
 import "katex/dist/katex.min.css"
 import "github-markdown-css/github-markdown.css"
+import SEO from "../components/seo"
 
 const renderAst = new rehype2react({
   createElement: React.createElement,
@@ -48,6 +49,7 @@ class BlogPostRoute extends React.Component {
 
     return (
       <Layout location={this.props.location}>
+        <SEO title={post.frontmatter.title} />
         <div
           css={{
             maxWidth: rhythm(26)

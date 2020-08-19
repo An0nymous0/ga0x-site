@@ -1,5 +1,5 @@
 import React from "react"
-import { Link, StaticQuery, graphql } from "gatsby"
+import { Link, StaticQuery, graphql, useStaticQuery } from "gatsby"
 import { scale } from "../utils/typography"
 import styles from "../styles"
 import Logo from "../images/logo.png"
@@ -11,8 +11,10 @@ import "typeface-spectral"
 import "prismjs/themes/prism-solarizedlight.css"
 import "prismjs/plugins/line-numbers/prism-line-numbers.css"
 import Img from "gatsby-image"
+import Header from "../components/header"
 
 class Layout extends React.Component {
+
   render() {
     return (
       <StaticQuery
