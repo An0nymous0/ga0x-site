@@ -6,7 +6,7 @@ import kebabCase from "lodash/kebabCase"
 class TagsPageRoute extends React.Component {
   render() {
     const allTags = this.props.data.allMarkdownRemark.group
-
+    console.log(allTags)
     return (
       <Layout location={this.props.location}>
         <h1>Tags</h1>

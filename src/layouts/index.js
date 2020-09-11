@@ -1,7 +1,5 @@
 import React from "react"
 import { Link, StaticQuery, graphql, useStaticQuery } from "gatsby"
-import { scale } from "../utils/typography"
-import styles from "../styles"
 import Logo from "../images/logo.png"
 import Image from "../components/image"
 
@@ -14,7 +12,14 @@ import Img from "gatsby-image"
 import Header from "../components/header"
 
 class Layout extends React.Component {
-
+  scrollToAnchor = () => {
+    let element = document.getElementById('asdf');
+    let height = document.getElementById('asdf').offsetTop; //计算需要向上移动的距离
+    element.scroll({
+      top: height, //向上移动的距离，如果有fixede布局， 直接减去对应距离即可
+      behavior: 'smooth', // 平滑移动
+    });
+  }
   render() {
     return (
       <StaticQuery
@@ -81,11 +86,11 @@ class Layout extends React.Component {
             //     </div>
             //   </div>
             // </div>
-            <div className="container">
-              <nav className="navbar" role="navigation" aria-label="main navigation">
+            <div className="has-navbar-fixed-top">
+              <nav id="asdf" className="navbar is-fixed-top" role="navigation" aria-label="main navigation">
                 <div className="navbar-brand">
                   <Link className="navbar-item" to="/">
-                    <img src={Logo} width="112" height="28"/>
+                    <img src={Logo} width="112" height="28"></img>
                     {/*<Img fixed={data.logoImage.childImageSharp.fixed} loading="eager" backgroundColor="false" />*/}
                     {/*<div>{data.logoImage.childImageSharp.fluid}</div>*/}
                     {/*<Image />*/}
@@ -104,61 +109,33 @@ class Layout extends React.Component {
                     <Link className="navbar-item" to="/">
                       首页
                     </Link>
-
-                    {/*<a className="navbar-item">*/}
-                    {/*  Documentation*/}
-                    {/*</a>*/}
-
-                    {/*<div className="navbar-item has-dropdown is-hoverable">*/}
-                    {/*  <a className="navbar-link">*/}
-                    {/*    More*/}
-                    {/*  </a>*/}
-
-                    {/*  <div className="navbar-dropdown">*/}
-                    {/*    <a className="navbar-item">*/}
-                    {/*      About*/}
-                    {/*    </a>*/}
-                    {/*    <a className="navbar-item">*/}
-                    {/*      Jobs*/}
-                    {/*    </a>*/}
-                    {/*    <a className="navbar-item">*/}
-                    {/*      Contact*/}
-                    {/*    </a>*/}
-                    {/*    <hr className="navbar-divider"/>*/}
-                    {/*      <a className="navbar-item">*/}
-                    {/*        Report an issue*/}
-                    {/*      </a>*/}
-                    {/*  </div>*/}
-                    {/*</div>*/}
                   </div>
-
-                  {/*<div className="navbar-end">*/}
-                  {/*  <div className="navbar-item">*/}
-                  {/*    <div className="buttons">*/}
-                  {/*      <a className="button is-primary">*/}
-                  {/*        <strong>Sign up</strong>*/}
-                  {/*      </a>*/}
-                  {/*      <a className="button is-light">*/}
-                  {/*        Log in*/}
-                  {/*      </a>*/}
-                  {/*    </div>*/}
-                  {/*  </div>*/}
-                  {/*</div>*/}
                 </div>
               </nav>
-              <div className="column is-6 is-offset-3">
-                {this.props.children}
-              </div>
-              <footer className="footer">
-                <div className="content has-text-centered">
-                  <p>
-                    <strong>Bulma</strong> by <a href="http://ga0x.com">Ga0x</a>. The source code is
-                    licensed
-                    <a href="http://opensource.org/licenses/mit-license.php">MIT</a>. The website content
-                    is licensed <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY NC SA 4.0</a>.
-                  </p>
+              {/*<section className="hero is-medium is-primary is-bold">*/}
+              {/*  <div className="hero-body">*/}
+              {/*    <div className="container has-text-centered">*/}
+              {/*      <h1 className="title">*/}
+              {/*        Coder*/}
+              {/*      </h1>*/}
+              {/*    </div>*/}
+              {/*  </div>*/}
+              {/*</section>*/}
+              <div className="container" style={{ marginTop: "65px" }}>
+                <div>
+                  {this.props.children}
                 </div>
-              </footer>
+                <footer className="footer">
+                  <div className="content has-text-centered">
+                    <p>
+                      <strong>Bulma</strong> by <a href="http://ga0x.com">Ga0x</a>. The source code is
+                      licensed
+                      <a href="http://opensource.org/licenses/mit-license.php">MIT</a>. The website content
+                      is licensed <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY NC SA 4.0</a>.
+                    </p>
+                  </div>
+                </footer>
+              </div>
             </div>
           )
         }}

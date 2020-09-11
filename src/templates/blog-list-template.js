@@ -13,24 +13,25 @@ export default class BlogList extends React.Component {
     const nextPage = (currentPage + 1).toString()
     return (
       <Layout>
-
           {posts.map(post => (
-            <div className="columns"  key={post.node.id}>
-            <div className="column is-full">
-              <div className="card">
-                <div className="card-content">
-                  <p className="title" style={{ color: "black" }}>
-                    <Link to={post.node.fields.slug} className="link-underline">
-                      {post.node.frontmatter.title}
-                    </Link>
-                  </p>
-                  <p className="subtitle">
-                    {post.node.excerpt}
-                  </p>
-                  <time>{post.node.frontmatter.date}</time>
-                </div>
+            <div className="columns is-8 is-variable"  key={post.node.id}>
+              <div className="column is-9">
+                {/*<div className="column is-full">*/}
+                  <div className="card">
+                    <div className="card-content">
+                      <p className="title" style={{ color: "black" }}>
+                        <Link to={post.node.fields.slug} className="link-underline">
+                          {post.node.frontmatter.title}
+                        </Link>
+                      </p>
+                      <p className="subtitle">
+                        {post.node.excerpt}
+                      </p>
+                      <time>{post.node.frontmatter.date}</time>
+                    </div>
+                  </div>
+                {/*</div>*/}
               </div>
-            </div>
             </div>
           ))}
         <div className="columns">

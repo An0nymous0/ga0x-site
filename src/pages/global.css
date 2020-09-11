@@ -11,3 +11,20 @@
 /*    -ms-transform: translateY(0);*/
 /*    transform: translateY(0);*/
 /*}*/
+
+/*html {*/
+/*    !*  font-family: sans-serif;*!*/
+/*    !*  -ms-text-size-adjust: 100%;*!*/
+/*    !*  -webkit-text-size-adjust: 100%;*!*/
+/*    padding-top:3.25rem;*/
+/*}*/
+/*.target-fix {*/
+/*position: relative;*/
+/*top: -55px;*/
+/*display: block;*/
+/*height: 0;*/
+/*overflow: hidden;*/
+/*!*    height: 0;*!*/
+/*!*    position:relative;*!*/
+/*!*    top:-80px;*!*/
+/*}*/
