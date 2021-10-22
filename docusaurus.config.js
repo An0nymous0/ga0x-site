@@ -17,7 +17,6 @@ const config = {
   projectName: 'ga0x-site', // Usually your repo name.
   trailingSlash: false,
 
-  plugins: ['@docusaurus/plugin-google-analytics'],
   presets: [
     [
       '@docusaurus/preset-classic',
