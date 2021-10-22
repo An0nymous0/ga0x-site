@@ -1,77 +1,40 @@
-import React from "react"
-import "./mystyles.scss"
-import "./global.css"
-import "./index.css"
-import { Link, graphql } from "gatsby"
-import Layout from "../layouts"
+import React from 'react';
+import clsx from 'clsx';
+import Layout from '@theme/Layout';
+import Link from '@docusaurus/Link';
+import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
+import styles from './index.module.css';
+import HomepageFeatures from '../components/HomepageFeatures';
 
-class Index extends React.Component {
-  render() {
-    const posts = this.props.data.allMarkdownRemark.edges
-    return (
-      <Layout location={this.props.location}>
-        <div className="columns is-8 is-variable">
-          <div className="column is-9">
-            {posts.map(post => (
-              <div className="card" key={post.node.id} style={{marginBottom:'20px'}}>
-                <div className="card-content">
-                  <p className="title" style={{ color: "black",fontSize:"1.3rem" }}>
-                    <Link to={post.node.fields.slug} className="link-underline">
-                      {post.node.frontmatter.title}
-                    </Link>
-                  </p>
-                  <p className="subtitle" style={{ fontSize:"1rem",color:"#999999" }}>
-                    {post.node.excerpt}
-                  </p>
-                  <time>{post.node.frontmatter.date}</time>
-                </div>
-              </div>
-            ))}
-          </div>
-          <div className="column is-3">
-            {/*{this.props.children}*/}
-            123
-          </div>
+function HomepageHeader() {
+  const {siteConfig} = useDocusaurusContext();
+  return (
+    <header className={clsx('hero hero--primary', styles.heroBanner)}>
+      <div className="container">
+        <h1 className="hero__title">{siteConfig.title}</h1>
+        <p className="hero__subtitle">{siteConfig.tagline}</p>
+        <div className={styles.buttons}>
+          {/*<Link*/}
+          {/*  className="button button--secondary button--lg"*/}
+          {/*  to="/docs/intro">*/}
+          {/*  Docusaurus Tutorial - 5min ⏱️*/}
+          {/*</Link>*/}
         </div>
-        {/*<div className="columns is-mobile is-centered">*/}
-        {/*  <div className="column is-half">*/}
-        {/*      <code className="html">is-half</code><br/>*/}
-        {/*  </div>*/}
-        {/*</div>*/}
-        <div className="columns is-centered">
-          <div className="column" style={{ textAlign: "center" }}>
-            <Link to="/blog" rel="next" className="button is-primary is-light">
-              更多
-            </Link>
-          </div>
-        </div>
-      </Layout>
-    )
-  }
+      </div>
+    </header>
+  );
 }
 
-export default Index
-
-export const pageQuery = graphql`
-  query {
-    allMarkdownRemark(
-      limit: 10
-      sort: { fields: [frontmatter___date], order: DESC }
-      filter: { frontmatter: { draft: { ne: true }, example: { ne: true } } }
-    ) {
-      edges {
-        node {
-          fields {
-            slug
-          }
-          frontmatter {
-            title
-            date(formatString: "YYYY-MM-DD")
-          }
-          excerpt
-          id
-        }
-      }
-    }
-  }
-`
+export default function Home() {
+  const {siteConfig} = useDocusaurusContext();
+  return (
+    <Layout
+      title={`Hello from ${siteConfig.title}`}
+      description="Description will go into a meta tag in <head />">
+      <HomepageHeader />
+      <main>
+        <HomepageFeatures />
+      </main>
+    </Layout>
+  );
+}
