@@ -17,6 +17,7 @@ const config = {
   projectName: 'ga0x-site', // Usually your repo name.
   trailingSlash: false,
 
+  plugins: ['@docusaurus/plugin-google-analytics'],
   presets: [
     [
       '@docusaurus/preset-classic',
@@ -114,6 +115,11 @@ const config = {
         theme: lightCodeTheme,
         darkTheme: darkCodeTheme,
         additionalLanguages: ['java'],
+      },
+      googleAnalytics: {
+        trackingID: 'UA-101757170-1',
+        // Optional fields.
+        anonymizeIP: true, // Should IPs be anonymized?
       },
     }),
 };
