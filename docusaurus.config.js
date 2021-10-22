@@ -13,8 +13,9 @@ const config = {
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.ico',
-  organizationName: 'facebook', // Usually your GitHub org/user name.
-  projectName: 'docusaurus', // Usually your repo name.
+  organizationName: 'An0nymous0', // Usually your GitHub org/user name.
+  projectName: 'ga0x-site', // Usually your repo name.
+  trailingSlash: false,
 
   presets: [
     [
