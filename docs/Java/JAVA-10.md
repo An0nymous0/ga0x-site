@@ -3,7 +3,7 @@ title: 'JAVA 10 特性'
 sidebar_label: 'JAVA 10'
 ---
 
-:::tip
+:::info
 JAVA 10 `非LTS` (Long-Term-Support) 版本
 :::
 
