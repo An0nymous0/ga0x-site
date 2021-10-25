@@ -112,7 +112,7 @@ public class Music {
 
 用来描述继承关系，在 Java 中使用 extends 关键字。
 
-![Docusaurus](../../assets/java/base/oop-1.png)
+![oop-1](../../assets/java/base/oop-1.png)
 
 ```
 @startuml
@@ -133,7 +133,7 @@ Vihical <|-- Trunck
 
 用来实现一个接口，在 Java 中使用 implement 关键字。
 
-![Docusaurus](../../assets/java/base/oop-2.png)
+![oop-2](../../assets/java/base/oop-2.png)
 
 ```
 @startuml
@@ -154,7 +154,7 @@ MoveBehavior <|.. Run
 
 表示整体由部分组成，但是整体和部分不是强依赖的，整体不存在了部分还是会存在。
 
-![Docusaurus](../../assets/java/base/oop-3.png)
+![oop-3](../../assets/java/base/oop-3.png)
 
 ```
 @startuml
@@ -177,7 +177,7 @@ Computer o-- Screen
 
 和聚合不同，组合中整体和部分是强依赖的，整体不存在了部分也不存在了。比如公司和部门，公司没了部门就不存在了。但是公司和员工就属于聚合关系了，因为公司没了员工还在。
 
-![Docusaurus](../../assets/java/base/oop-4.png)
+![oop-4](../../assets/java/base/oop-4.png)
 
 ```
 @startuml
@@ -198,7 +198,7 @@ Company *-- DepartmentB
 
 表示不同类对象之间有关联，这是一种静态关系，与运行过程的状态无关，在最开始就可以确定。因此也可以用 1 对 1、多对 1、多对多这种关联关系来表示。比如学生和学校就是一种关联关系，一个学校可以有很多学生，但是一个学生只属于一个学校，因此这是一种多对一的关系，在运行开始之前就可以确定。
 
-![Docusaurus](../../assets/java/base/oop-5.png)
+![oop-5](../../assets/java/base/oop-5.png)
 
 ```
 @startuml
