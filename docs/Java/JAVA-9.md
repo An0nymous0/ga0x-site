@@ -3,7 +3,7 @@ title: 'JAVA 9 特性'
 sidebar_label: 'JAVA 9'
 ---
 
-:::tip
+:::info
 JAVA 9 `非LTS` (Long-Term-Support) 版本
 :::
 
