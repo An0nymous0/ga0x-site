@@ -1,5 +1,5 @@
 ---
-title: '前端类库'
+title: '前端JS类库'
 sidebar_position: 1
 ---
 
