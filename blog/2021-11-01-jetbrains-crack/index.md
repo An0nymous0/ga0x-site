@@ -4,6 +4,8 @@ authors: gaoxu
 tags: [JetBrains, IDE]
 ---
 
+![img.png](img.png)
+
 ## 无限重置试用
 
 > 此方法 Windows MacOS 通用
