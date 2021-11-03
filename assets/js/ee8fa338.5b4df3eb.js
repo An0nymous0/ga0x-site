@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkmy_website=self.webpackChunkmy_website||[]).push([[928],{6647:function(e){e.exports=JSON.parse('{"allTagsPath":"/blog/tags","slug":"/blog/tags/cent-os","name":"CentOS","count":1,"permalink":"/blog/tags/cent-os"}')}}]);
