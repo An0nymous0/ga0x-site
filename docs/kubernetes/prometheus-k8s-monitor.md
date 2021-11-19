@@ -186,3 +186,4 @@ spec:
 1. [Monitoring applications in K8s with Prometheus](https://iamonkar.dev/prometheus-k8s/)
 2. [Prometheus 监控服务 - Spring Boot 接入](https://cloud.tencent.com/document/product/1416/56031)
 3. [micrometer官方文档](https://micrometer.io/docs)
+4. [micrometer官方文档](https://dbaplus.cn/news-134-3247-1.html)
