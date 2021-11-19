@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+    <channel>
+        <title>An0nymous Blog</title>
+        <link>https://ga0x.com/blog</link>
+        <description>An0nymous Blog</description>
+        <lastBuildDate>Wed, 03 Nov 2021 00:00:00 GMT</lastBuildDate>
+        <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
+        <generator>https://github.com/jpmonette/feed</generator>
+        <item>
+            <title><![CDATA[graalvm 在 macOS Catalina 上提示无法验证开发人员警告问题]]></title>
+            <link>https://ga0x.com/blog/2021/11/03/graalvm-damaged-error</link>
+            <guid>graalvm 在 macOS Catalina 上提示无法验证开发人员警告问题</guid>
+            <pubDate>Wed, 03 Nov 2021 00:00:00 GMT</pubDate>
+            <description><![CDATA[img.png]]></description>
+            <content:encoded><![CDATA[<p><img src="img.png" alt="img.png"/></p><h2>背景</h2><p>提示:</p><blockquote><p>“graalvm-ce-java11-20.3.0” is damaged and can’t be opened.</p><p>或</p><p>“graalvm-ce-java11-21.3.0”已损坏，无法打开。</p></blockquote><h2>如何解决</h2><p>在 macOS Catalina 上，您可能会收到“无法验证开发人员”的警告。这是因为 GraalVM 尚未签名和认证。但是，可以在“安全和隐私”首选项窗格中或通过运行以下命令来禁用该检查：</p><pre><code class="language-shell">xattr -r -d com.apple.quarantine /Library/Java/JavaVirtualMachines/graalvm-ce-javaV-XX.Y.Z
+</code></pre><p><a href="https://github.com/graalvm/homebrew-tap#macos-catalina-specifics">官方解释和说明</a></p>]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[JetBrains全系列软件激活教程]]></title>
+            <link>https://ga0x.com/blog/2021/11/01/jetbrains-crack</link>
+            <guid>JetBrains全系列软件激活教程</guid>
+            <pubDate>Mon, 01 Nov 2021 00:00:00 GMT</pubDate>
+            <description><![CDATA[img.png]]></description>
+            <content:encoded><![CDATA[<p><img src="img.png" alt="img.png"/></p><h2>无限重置试用</h2><blockquote><p>此方法 Windows MacOS 通用</p></blockquote><h2>背景</h2><p>Jetbrains 家的产品有一个很良心的地方，他会允许你试用 30 天（这个数字写死在代码里了）以评估是否你真的需要为它而付费。 但很多时候会出现一种情况：IDE 并不能按照我们实际的试用时间来计算。</p><p>我举个例子：如果我们开始了试用，然后媳妇生孩子要你回去陪产！陪产时我们并无空闲对IDE试用评估，它依旧算试用时间。（只是举个例子，或许你并没有女朋友）</p><p>发现了吗？你未能真的有 30 天来对它进行全面的试用评估，你甚至无法作出是否付费的决定。此时你会想要延长试用时间，然而 Jetbrains 并未提供相关功能，该怎么办？</p><p>事实上有一款插件可以实现这个功能，你或许可以用它来重置一下试用时间。但切记不要无休止的一直试用，这并不是这个插件的初衷!</p><p><img src="1.png" alt="1.png"/></p><h2>如何安装</h2><blockquote><p>提供以下两种方法，二选一即可。</p></blockquote><h3>插件市场安装</h3><p>在 Settings/Preferences... -&gt; Plugins 内手动添加第三方插件仓库地址：<a href="https://plugins.zhile.io">https://plugins.zhile.io</a> 搜索：IDE Eval Reset 插件进行安装。</p><p><img src="2.png" alt="2.png"/>
+<img src="3.png" alt="3.png"/>
+<img src="4.png" alt="4.png"/>
+<img src="5.png" alt="5.png"/>
+<img src="6.png" alt="6.png"/>
+<img src="7.png" alt="7.png"/>
+<img src="8.png" alt="8.png"/></p><h3>手动下载安装</h3><p>点击<a href="https://www.lanzouw.com/iL6QXw03iqj">这个链接(v2.3.5)</a>下载插件的 zip 包（macOS可能会自动解压，切记使用的是 zip 包，不是解压后的文件夹！），然后打开 Settings/Preferences... -&gt; Plugins 手动安装插件。
+<img src="9.png" alt="9.png"/>
+<img src="10.png" alt="10.png"/>
+<img src="11.png" alt="11.png"/>
+<img src="12.png" alt="12.png"/></p><h2>如何使用</h2><p>一般来说，在 IDE 窗口切出去或切回来时（窗口失去/得到焦点）会触发事件，检测是否长时间（25天）没有重置，给通知让你选择。（初次安装因为无法获取上次重置时间，会直接给予提示）。</p><p>您也可以手动唤出插件的主界面：</p><p>a. 如果 IDE 没有打开项目，在 Welcome 界面点击 IDE 的菜单：Get Help -&gt; Eval Reset</p><p>b. 如果 IDE 打开了项目，点击 IDE 的菜单：Help -&gt; Eval Reset</p><p>唤出的插件主界面中包含了一些显示信息，有 2 个按钮和 1 个勾选项：</p><ul><li>按钮：Reload 用来刷新界面上的显示信息。</li><li>按钮：Reset 点击会询问是否重置试用信息并重启 IDE。选择 Yes 则执行重置操作并重启 IDE 生效，选择 No 则什么也不做。（此为手动重置方式）</li><li>勾选项：Auto reset before per restart 如果勾选了，则自勾选后每次重启/退出 IDE 时会自动重置试用信息，你无需做额外的事情。（此为自动重置方式，推荐此方法！）</li></ul><p><img src="13.png" alt="13.png"/>
+<img src="14.png" alt="14.png"/>
+<img src="15.png" alt="15.png"/></p><h2>如何更新</h2><ol><li>插件更新机制（推荐）：</li></ol><p>IDE 会自行检测其自身和所安装插件的更新并给予提示。如果本插件有更新，你会收到提示看到更新日志，自行选择是否更新。</p><p>点击 IDE 的 Check for Updates... 菜单手动检测 IDE 和所安装插件的更新。如果本插件有更新，你会收到提示看到更新日志，自行选择是否更新。</p><p>插件更新可能会需要重启IDE。</p><ol start="2"><li>手动更新：</li></ol><p>从本页面下载最新的插件 zip 包安装更新。插件更新需要重启IDE。</p><h2>一些说明</h2><p>市场付费插件的试用信息也会一并重置。</p><p>MyBatisCodeHelperPro 插件有两个版本如下，功能完全相同，安装时须看清楚！</p><ul><li><a href="https://plugins.jetbrains.com/plugin/14522-mybatiscodehelperpro-marketplace-edition-">MyBatisCodeHelperPro</a> (Marketplace Edition)，可重置！</li><li><a href="https://plugins.jetbrains.com/plugin/9837-mybatiscodehelperpro">MyBatisCodeHelperPro</a>，不可重置！</li></ul><p>对于某些付费插件（如: Iedis 2, MinBatis）来说，你可能需要去取掉 javaagent 配置（如果有）后重启IDE：</p><ul><li>如果IDE没有打开项目，在 Welcome 界面点击菜单：Configure -&gt; Edit Custom VM Options... -&gt; 移除 -javaagent: 开头的行。</li><li>如果IDE打开了项目，点击菜单：Help -&gt; Edit Custom VM Options... -&gt; 移除 -javaagent: 开头的行。</li></ul><p>重置需要重启IDE生效！</p><p>重置后并不弹出 Licenses 对话框让你选择输入 License 或试用，这和之前的重置脚本/插件不同（省去这烦人的一步）。</p><p>如果长达 25 天不曾有任何重置动作，IDE 会有通知询问你是否进行重置。</p><p>如果勾选：Auto reset before per restart ，重置是静默无感知的。</p><p>简单来说：勾选了 Auto reset before per restart 则无需再管，一劳永逸。</p><h2>中文汉化包</h2><p>JetBrains 系列大部分在<strong>官方</strong>的插件中心直接安装使用了。</p><p>以 WebStrom 为例，打开它的设置，点击 Plugins，搜索 chinese，安装即可。</p><p><img src="16.png" alt="16.png"/></p><h2>支持的产品</h2><ul><li>IntelliJ IDEA</li><li>AppCode</li><li>CLion</li><li>DataGrip</li><li>GoLand</li><li>PhpStorm</li><li>PyCharm</li><li>Rider</li><li>RubyMine</li><li>WebStorm</li></ul>]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[优秀的 REST API 设计指南]]></title>
+            <link>https://ga0x.com/blog/2020/07/31/rest-api-design</link>
+            <guid>优秀的 REST API 设计指南</guid>
+            <pubDate>Fri, 31 Jul 2020 00:00:00 GMT</pubDate>
+            <description><![CDATA[本文建议读者：]]></description>
+            <content:encoded><![CDATA[<p>本文建议读者：</p><ul><li>后端工程师、架构师</li><li>需要跟后端协同的前端工程师</li><li>以API提供服务的软件提供商</li></ul><h2>前言</h2><hr/><p>作为一名优秀的后端程序员，你照着产品需求设计好了模型，设计好了关联关系。</p><p>把这些模型和关系一再打磨了一番之后，你想是时候把API设计出来，与前端沟通了。</p><p>这时候问题来了：</p><p>一旦 API 进入前端 APP 代码，或者是被你的顾客广泛使用的话，再来大改就非常麻烦了。比如说，如果 APP 版本 1.0 用了一个接口 A，这个接口 A 如果要进行大改，那么必须将 A 维持至所有用户升级过 APP 1.0 后。</p><p>那么怎么样避免 API 发布之后大改呢？有没有一些提前可以注意到的设计准则可以帮我们避开 API 设计中的各种坑？</p><p>答案是有的。网上充满了各种对 API 设计的建议，而这篇文章里我们结合卡拉搜索设计 API 的经验，把 REST API 的最佳实践和常见的坑都总结出来，做成一个教程，希望可以在帮到正在设计/使用 API 的你。</p><h2>REST API 是什么 - 程序员与服务之间沟通的语言</h2><hr/><p>任何语言的本质都是一套规则的合集。比如说，中文里要求句子要有主谓宾，而作为母语为中文的我们，一旦有人说了一句缺少主语的话，我们会直觉性地感觉很奇怪。</p><p>比如说，如果有人对你说“是一个神人”。</p><p>你会直觉地问：究竟谁是一个神人？</p><p>同样的，在各个程序的沟通中，或者各个服务的沟通中，我们也需要类似“语言”的东西，让我们可以不需要太多的上下文，就可以前端理解后端、后端也理解前端。</p><p>设想一下，有多少次你跟前端一起需要前后端 <code>联调</code>？有多少次前端觉得你定义的 API 不够方便直观，一定要你多返回一个参数或者改一下端点路径？</p><p>其实本质上，你们在 <code>联调</code> 时就是在尝试设计一个“语言”，以方便互相可以更容易地理解对方。</p><p>比如说，后端会要求前端说，你调用 <code>POST /user/abc</code> 就可以创建一个名为 <code>abc</code> 用户了。</p><p>短线来讲这当然没问题，你们可以几乎任意地定义 API 端点，任意地调整传递的参数。但是一旦项目开始变复杂，问题就开始出现了。</p><ul><li>首先大家有不同的经验和喜好，对 API 的定义可能千差万别，所谓众口难调</li><li>系统开始复杂后，各个系统之间的 API 因为定义的人的不同，会开始出现不一致，导致每个端口调用前需要详细阅读文档（如果有的话）或者与 API 设计者无穷无尽地讨论和会议</li><li>如果你的 API 是面向客户的，比如如果你是一家软件服务公司，那么你自定义的 API 会增加客户接入的成本</li><li>等等等等</li></ul><p>因此，要是有一套人类通用的&quot;语言“或者”规范“，来指导大家定义 API 的方式，那样该多好？</p><p>REST API 就是这样一种规范，它是目前整个互联网应用最广泛的 API 规范。有意思的是，REST是由它的提出者 Roy Fielding 在他读书期间，写的博士论文里提出的。</p><p>总结一下，REST API 有一套 API 设计的准则，它规范了 API 设计的框架，使得服务间、程序员之间有一个通用的沟通语言。如果需要读 API 更广泛的定义，请参考文章<a href="https://kalasearch.cn/blog/what-is-api">什么是 API</a></p><p>REST API是沟通语言</p><h2>REST API 内具体规定了什么</h2><hr/><p>REST API 规范了 API 设计的两大核心原则</p><ol><li>API应该作用于 Resource（资源）上</li><li>对资源的操作应使用对应语义的几种操作，包括： GET, POST, PUT, PATCH, DELETE</li></ol><p>我们来详细解释一下这两点</p><h3>什么是 REST API 里的 Resource（即资源）</h3><p>这里的资源是指你的 API 用户可操作的逻辑对象，举个例子</p><p>如果你的 API 中允许调用者对用户进行操作，比如说用户注册，那么 API 类似于</p><pre><code>POST /users
+</code></pre><p>在这里，资源即为 <code>users</code>。在很多情况下，API 中的资源与你的数据模型（也就是数据库的表）是一一对应的。当然也有例外情况，比如说你的数据库中存有用户，但是你现在想要让调用者可以创建“管理员”，那么 API 可能是</p><pre><code>POST /admins
+</code></pre><p>然而，你的表中并没有 <code>admins</code> 这个表，而是否是 admin 是 Users 表中的一个属性，比如 <code>role=admin</code>。</p><p>请注意，REST API中的资源一定需要是名词，即一定是一个实在存在的概念比如 <code>用户</code>, <code>帐号</code>, <code>车票</code>等，或一个抽象的概念比如 <code>权限</code> 等。如果你需要提供一个创建某种资源的API接口，上述则可以表述为</p><pre><code>POST /indexes
+POST /accounts
+POST /docs
+</code></pre><p>等等。</p><p>通常对于资源的命名，我们建议统一命名为为英文的复数。比如说 <code>users</code> 而不是 <code>user</code>。同时请注意保持一致性，在所有地方用一样的复数。</p><h3>什么是 REST API 里的操作</h3><p>一旦你定义了资源，接下来你需要定义允许调用者在这些资源上做什么操作。</p><p>比如说，以携程抢车票网站为例，我们可能允许调用者进行以下操作</p><ul><li><code>GET /tickets</code> - 列出所有车票</li><li><code>GET /tickets/9839</code> - 列出 id 为 9839 这张车票的信息</li><li><code>POST /tickets</code> - 创建一张车票</li><li><code>PUT /tickets/9839</code> - 更新 9839 这张车票的信息</li><li><code>PATCH /tickets/9839</code> - 部分修改 983 这张车票的信息，比如只修改车票价格</li><li><code>DELETE /tickets/9839</code> - 删掉 9839 这张车票</li></ul><p>请注意，到这里为止，你应该可以总结出来REST的大致设计思路了。它由两部分组成，第一部分是 <code>操作</code>，第二部分是可操作的 <code>资源</code>。比如上文中的 <code>GET /tickets</code>，操作是 GET，可操作的资源是车票。</p><p>那么读到这里，如果你严格遵循了REST的设计准则，以及你的调用者也了解 REST 的准则的话，那么对于很多 API 调用，你们不用再参考互相写的文档了。如果需要调用一张车票的信息，你的调用者自然会知道应该用GET去查看一个车票资源的信息，即 <code>GET /tickets/:ticketId</code>。这样就极大降低了沟通成本和出错成本，提升效率。</p><h3>如何在 API 中表示实体（数据库表）间关系</h3><p>在后端设计中，有的资源逻辑上无法独立存在。比如说，在卡拉搜索的例子里，用户的文档是无法独立于索引存在的。那么自然地，我们用</p><pre><code>GET /indexes/index_abc/docs/1
+</code></pre><p>来表达获取索引 <code>index_abc</code> 中编号为 <code>1</code> 的文档。因此，对于所有资源需要依赖于另一个资源存在时，我们就按顺序在端点中将资源列出来。对于卡拉搜索中，索引和文档的关系，我们有以下接口</p><ul><li><code>GET /indexes/index_abc/docs/1</code> - 获取index id为 <code>index_abc</code> 下的id为 <code>1</code> 的文档</li><li><code>GET /indexes/index_abc/docs</code> - 获取index id为 <code>index_abc</code> 下的所有文档</li><li><code>POST /indexes/index_abc/docs</code> - 在index id为 <code>index_abc</code> 的索引中，添加文档 ...</li></ul><p>如果一个资源可以独立于另一个资源存在，并且你期望你的API调用者频繁调用，那么可以考虑直接提供子端点。比如说，如果一个宠物店主人和宠物信息分别都常常被同时调用，那么你可以考虑</p><pre><code class="language-text">GET /owners/  - 获取所有主人信息
+GET /owners/1/pets/ 获取 id 为 1 的主人的所有宠物
+GET /pets/ - 获取所有宠物信息（宠物店所有宠物）
+GET /pets/13 - 直接获取 id 为 13 的宠物
+</code></pre><h3>REST API中如何表示一个动作</h3><p>有时候，当我们试图表达一些接口时，会发现REST的准则很难直接应用。比如说，当你需要一个接口让用户登录时</p><pre><code>POST /users/signin
+</code></pre><p>但要注意，这里的 <code>signin</code> 即登录，是一个动词。这里是采用REST准则时需要考虑的地方，你有三个选择</p><ol><li>如果你希望严格地遵循 REST 原则，那么你需要找一个替代动词的名词。比如说，这里的 <code>signin</code> 可以替换为<code>login</code>。或者，如果你是以 token 密钥的方式登录的话，也许可以改为 <code>POST /users/token</code>，即创建一个 user token(也就是登录了)</li><li>在某些实在困难的地方，放弃严格的REST原则</li><li>参考一些成功的 REST API 并寻找类似的 API，参考他们的命名设计</li></ol><p>对于3，我强烈建议你参考 github 的 API，原因不光是其极为规范，还有它覆盖了极多的 API 调用的情景，因此大概率你可以找到个类似的命名参考。</p><p>比如说，在 github 上，如果让你来设计加星这个操作，你会把端点被设计成什么样？</p><p>Github把加星端点设计为 <code>PUT /gists/:id/star</code>，把取消加星设计为 <code>DELETE /gitsts/:id/star</code>。这样就完美地遵循了 REST 名词作为资源的准则，把动词&quot;加星“完美地用 <code>PUT/DELETE</code> 两个操作，清晰地表达了出来。</p><h2>REST API 设计常见问题和建议</h2><hr/><p>上面我们描述了 REST 设计的准则，而在准则中并不包括其它”最佳实践“。</p><p>这里的最佳实践，其实并没有什么客观标准，只是软件工程和架构经过多年的发展，REST API 的设计也从十几年前简单的web 应用，到应用到现在越来越复杂企业级软件中。因此，如果你刚刚开始学习 REST API 的设计，参考这些实践经验将会有非常大的帮助，可以帮你少走不少绕路。</p><p><a href="1.png"><img src="1.png" alt="REST API 最佳实践"/></a>REST API 最佳实践</p><h3>REST API 如何区分版本</h3><p>在设计 REST API 时，你应该时刻准备好不断更新 API。想要把 API稳定后再一次发布多数情况下是不实际的——老板要催进度，用户要催功能。因此，在设计 API 的时候就应该把支持 API 改动设计到API本身中。</p><p>多数情况下，在一版 API 已经成熟的前提下，可以提前发布，同时开始进行下一版的开发。而你只需要在URL中区分好 API 的版本即可。</p><p>比如说，如果在大致将 v1 开发完毕后，v1 前缀的 API 就应该稳定下来，所有的改动进入 v2。同时你应该开始通知所有使用 v1 的用户，给他们几周到几个月的时间，帮助他们平滑迁移到 v2</p><p>带有版本前缀的 API 示例如下</p><pre><code class="language-curl">GET /v1/indexes/
+GET /v1/indexes/abc/
+POST /v1/indexes/
+</code></pre><h3>REST API 应该返回什么</h3><p>作为一个通则，我们建议 REST API 永远返回 JSON 格式的结果。</p><p>原因有几个：</p><p>首先，JSON 作为互联网上使用最广泛的格式，在几乎任何语言的任何框架中都有广泛的支持。</p><p>同时，由于其高度的可读性，如果需要阅读返回内容，JSON 会让你的调用者阅读起来方便很多。</p><p>最后，JSON 的高压缩率可以在需要时方便地帮你提升传输效率和速度。</p><h3>为什么要给你的 API 编写文档</h3><p>写代码时，遇到稍复杂的逻辑，我们会发现如果没有注释，一个月后回来发现自己当时写的代码根本不像自己亲生的。再试图熟悉时，可能几个小时就过去了。</p><p>同样，对于 API 来说，如果你不写文档，那么在集成时，你的调用者肯定一边骂，一边尝试各种参数组合。为了让你的调用者有更顺滑的接入体验，每个 API 的设计者都应该把 API 文档作为与 API 的代码一样重要的模块。</p><p>好的 API 文档不光可以方便调用者的接入，更可以方便让你把 API 更改等信息传递出去，而不是一个一个单独通知你的用户。同时在编写文档时，你也会尝试着以你描述地方式接入，间接做了一次&quot;dog food&quot;自测。</p><p>如果你是面向开发者的 API 的话，优秀的 API 文档还可以作为强大的品牌宣传。在卡拉搜索我们花大力气维护我们的文档，同时我们也参考和致敬其它我们用过或者觉得值得夸奖的 API 文档：</p><ul><li><a href="https://kalasearch.cn/docs">卡拉搜索 API 文档 - 用 API 实现搜索引擎</a></li><li><a href="https://leancloud.cn/docs/rest_api.html">Leancloud API文档</a></li><li><a href="https://developer.github.com/v3/">Github API 文档</a></li></ul><h3>默认开启 Gzip 和 Pretty print</h3><p>在返回你的 REST API 结果时，我们建议打开 Gzip 和 Pretty print 两个选项。</p><h4>打开 Gzip</h4><p>Gzip 非常好理解，在目前的普通手机算力已经接近十几年前的顶配计算机的前提下，CPU 不再是运算的瓶颈。而网络带宽的扩宽速度则远没有追上 CPU 变快的速度。因此，如果有可能的话，用 CPU 的时间换取网络的传输时间是非常值得的。这也就是说，打开默认 Gzip 压缩，会让你的 JSON 结果耗费少量的服务器 CPU，但却能大大加快传输速度。</p><p>因此我们建议默认将 Gzip 打开。</p><h4>打开 Pretty Print</h4><p>什么是 Pretty print 呢？简单说就是在 JSON 中插入空格和换行，让 JSON 变得美观，方便人阅读。比如下面不是Pretty print:</p><pre><code class="language-text">{&quot;name&quot;:&quot;大话西游&quot;,&quot;actor&quot;:&quot;周星驰”}
+</code></pre><p>而下面是打开 Pretty print 后的同一个 JSON</p><pre><code class="language-text">{
+  &quot;name&quot;: &quot;大话西游&quot;,
+  &quot;actor&quot;: &quot;周星驰”
+}
+</code></pre><p>在 JSON 稍变得复杂之后，如果没有 Pretty print 的 JSON 将会变得完全不可读。虽然打开 Pretty print 会增加一些空白字符，但是由于打开 Gzip 压缩，这些空白字符所占用的空间都会被压缩掉，所以并不用担心网络传输时，JSON 变得更大更慢。</p><h2>总结</h2><p>API是程序员与程序员沟通的语言，一个优秀的API不光可以让你维护起来更轻松，也会让你的调用者在使用时更得心应手。遵循 REST 准则设计出来的优秀的 API，可以减少你与调用者之间的沟通成本，让你可以用更多的时间专注在其它更重要的事情上。</p>]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[CentOS 7 下 yum 安装和配置 NFS]]></title>
+            <link>https://ga0x.com/blog/2020/07/28/centos7-install-nfs</link>
+            <guid>CentOS 7 下 yum 安装和配置 NFS</guid>
+            <pubDate>Tue, 28 Jul 2020 00:00:00 GMT</pubDate>
+            <description><![CDATA[前言]]></description>
+            <content:encoded><![CDATA[<h2>前言</h2><p><strong>NFS 是 Network File System 的缩写，即网络文件系统。功能是让客户端通过网络访问不同主机上磁盘里的数据，主要用在类Unix系统上实现文件共享的一种方法。 本例演示 CentOS 7 下安装和配置 NFS 的基本步骤。</strong></p><h2>服务端</h2><h3>安装</h3><pre><code class="language-shell">$ sudo yum install nfs-utils
+</code></pre><h3>配置开机启动和启动服务</h3><p>设置 NFS 开机启动</p><pre><code class="language-shell">$ sudo systemctl enable rpcbind
+$ sudo systemctl enable nfs
+</code></pre><p>启动 NFS 服务</p><pre><code class="language-shell">$ sudo systemctl start rpcbind
+$ sudo systemctl start nfs
+</code></pre><h3>配置共享目录</h3><pre><code class="language-shell">$ sudo mkdir /data
+$ sudo chmod 755 /data
+</code></pre><p>配置配件</p><pre><code class="language-shell">$ sudo vi /etc/exports
+</code></pre><p>添加如下配置</p><pre><code class="language-shell">/data/     192.168.0.0/24(rw,sync,no_root_squash,no_all_squash)
+</code></pre><ol><li><code>/data</code>: 共享目录位置。</li><li><code>192.168.0.0/24</code>: 客户端 IP 范围，<code>*</code> 代表所有，即没有限制。</li><li><code>rw</code>: 权限设置，可读可写。</li><li><code>sync</code>: 同步共享目录。</li><li><code>no_root_squash</code>: 可以使用 root 授权。</li><li><code>no_all_squash</code>: 可以使用普通用户授权。</li></ol><p>重启 NFS 服务</p><pre><code class="language-shell">$ sudo systemctl restart nfs
+</code></pre><p>检查配置的共享目录是否正确</p><pre><code class="language-shell">$ showmount -e localhost
+Export list for localhost:
+/data 192.168.0.0/24
+</code></pre><p>服务端配置完毕，接下来配置客户端。</p><h2>客户端</h2><h3>安装 NFS</h3><pre><code class="language-shell">$ sudo yum install nfs-utils
+</code></pre><h4>配置</h4><p>设置 rpcbind 开机启动</p><pre><code class="language-shell">$ sudo systemctl enable rpcbind
+</code></pre><p>启动服务</p><pre><code class="language-shell">sudo systemctl start rpcbind
+</code></pre><h4>客户端连接NFS</h4><p>查看服务端的共享目录</p><pre><code class="language-shell">$ showmount -e 192.168.0.110
+Export list for 192.168.0.110:
+/data 192.168.0.0/24
+</code></pre><p>在客户端创建目录</p><pre><code class="language-shell">$ sudo mkdir /data
+</code></pre><p>挂载远程目录</p><pre><code class="language-shell">$ sudo mount -t nfs 192.168.0.101:/data /data
+</code></pre><p><code>mount</code>命令查看一下挂载情况</p><pre><code class="language-shell">$ mount
+...
+...
+192.168.0.110:/data on /data type nfs4 (rw,relatime,sync,vers=4.1,rsize=131072,wsize=131072,namlen=255,hard,proto=tcp,port=0,timeo=600,retrans=2,sec=sys,clientaddr=192.168.0.100,local_lock=none,addr=192.168.0.101)
+</code></pre><p>说明已经挂载成功了</p><h3>客户端自动挂载</h3><pre><code class="language-shell">$ sudo vi /etc/fstab
+</code></pre><p>在结尾添加类似如下配置</p><pre><code class="language-shell">#
+# /etc/fstab
+# Created by anaconda on Thu May 25 13:11:52 2017
+#
+# Accessible filesystems, by reference, are maintained under &#x27;/dev/disk&#x27;
+# See man pages fstab(5), findfs(8), mount(8) and/or blkid(8) for more info
+#
+/dev/mapper/cl-root     /                       xfs     defaults        0 0
+UUID=414ee961-c1cb-4715-b321-241dbe2e9a32 /boot                   xfs     defaults        0 0
+/dev/mapper/cl-home     /home                   xfs     defaults        0 0
+/dev/mapper/cl-swap     swap                    swap    defaults        0 0
+192.168.0.110:/data     /data                   nfs     defaults        0 0
+
+</code></pre><p>重新加载 <code>systemctl</code></p><pre><code class="language-shell">$ sudo systemctl daemon-reload
+</code></pre>]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[了解一致性哈希]]></title>
+            <link>https://ga0x.com/blog/consistent-hash</link>
+            <guid>consistent-hash</guid>
+            <pubDate>Mon, 27 Jul 2020 00:00:00 GMT</pubDate>
+            <description><![CDATA[了解一致性HASH之前我们先来了解下取模算法]]></description>
+            <content:encoded><![CDATA[<p>了解一致性HASH之前我们先来了解下取模算法</p><h2>举个例子</h2><p>我们通常用到的Redis缓存，如果数据量较少一台Redis就搞定了。但是数据量大了，或者为了高可用可能就需要多台了。如果我们现在有4台Redis那么我们怎么能让数据尽量存储平均呢？</p><p>最简单的办法就是：
+<strong>Hash(key) % N</strong>，key是要存储的数据，N是Redis的数量，在这里N=4。</p><p><img src="1.jpg" alt="Alt text here"/></p><p>上面的方法看起来比较美好，但是一旦扩容就会遇到问题。假设说我们现在4台Redis不够用了要加一台那么我们的算法就变成了<strong>Hash(key) % 5</strong>；导致大部分key都会找不到。如果当前并发量比较大就会发生我们常说的<strong>缓存雪崩</strong>。</p><h2>一致性HASH算法</h2><p>一致性HASH算法可以很好的解决我们上面出现问题，原理也是用取模的方法，不过一致性HASH算法是对<strong>2^32</strong>取模，简单来说一致性HASH是将哈希值形成一个圆环，范围是 0 - 2^32；整个HASH环如下</p><p><img src="2.jpg"/></p><p>下一步是将我们的服务器进行HASH在环上找到自己的位置（可以是服务器+端口后对2^32取模），假设总共有4台服务，在环上的位置如下：</p><p><img src="3.jpg"/></p><p>接下来是如何让数据定位到具体的Node上。</p><p>假设我们有 A ，B ，C ，D四个数据对象经过HASH之后可能是环上的某一个定位但不是Node位置，那么怎么办呢，我们顺时针往下走遇到的第一个Node就是我们要存储的服务器，如下图所示：</p><p><img src="4.jpg"/></p><p>如果增加或删除服务器只会影响<strong>部分数据</strong></p><p>最后我们总结一致性HASH可以方便的增删服务并且只影响部分数据，注意：是解决了大部分数据问题，而不是所有。算是hash的增强。</p><h2>扩展阅读</h2><p>数据量少的情况下我们会遇到数据倾斜，需要加虚拟节点。需要的同学可以自行查询相关资料。</p>]]></content:encoded>
+        </item>
+    </channel>
+</rss>
