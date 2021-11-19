@@ -138,7 +138,7 @@ spec:
 :::
 
 prometheus 堆栈的 helm 安装创建了一些 CRD。其中之一是服务监视器(上面介绍到的Prometheus Adapter for Kubernetes Metrics APIs)。服务监视器是我们声明从哪个服务抓取指标和间隔的地方。与其他 k8s 资源一样，它也适用于匹配标签。
-一件重要的事情是监控命名空间中的 prometheus 对象在我们拥有标签之前不会知道这个服务监视器 release: prometheus。如果我们描述普罗米修斯资源。kubectl describe prometheuses.monitoring.coreos.com -n monitoring我们会发现它与此标签上的服务监视器相匹配。
+一件重要的事情是监控命名空间中的 prometheus 对象在我们拥有标签之前不会知道这个服务监视器 release: prometheus。如果我们描述prometheus resource。kubectl describe prometheuses.monitoring.coreos.com -n monitoring我们会发现它与此标签上的服务监视器相匹配。
 
 ```yaml
   Service Monitor Selector:
