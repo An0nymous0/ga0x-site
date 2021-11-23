@@ -1,5 +1,5 @@
 ---
-title: Spring Boot Redis lettuce驱动连接出现 io.lettuce.core.RedisCommandExecutionException: NOAUTH Authentication required.
+title: 'Spring Boot Redis lettuce驱动连接出现 io.lettuce.core.RedisCommandExecutionException: NOAUTH Authentication required.'
 authors: gaoxu
 tags: [Spring Boot, lettuce, Java]
 ---
