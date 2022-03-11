@@ -23,7 +23,7 @@ export default function BlogPostPage(props) {
     s.src = "https://utteranc.es/client.js";
     s.setAttribute("repo", "An0nymous0/ga0x-site");
     s.setAttribute("issue-term", "pathname");
-    s.setAttribute("label", "✨💬✨");
+    s.setAttribute("label", "comment✨💬✨");
     s.setAttribute("theme", "github-light");
     s.setAttribute("crossorigin", "anonymous");
     s.async = true;
