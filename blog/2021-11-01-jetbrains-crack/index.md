@@ -6,8 +6,6 @@ tags: [JetBrains, IDE]
 
 ![img.png](img.png)
 
-
-
 ## 通过agent+激活码方式1
 
 1. [JetBrains官网](https://www.jetbrains.com/) 下载安装你需要的 IDE，如果下载慢可以在 macwk 搜索 jetbrains。
