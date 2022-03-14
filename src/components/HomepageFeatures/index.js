@@ -59,14 +59,6 @@ export default function HomepageFeatures() {
           ))}
         </div>
       </div>
-      <script src="https://utteranc.es/client.js"
-              repo="An0nymous0/ga0x-site"
-              issue-term="pathname"
-              label="✨💬✨"
-              theme="github-light"
-              crossOrigin="anonymous"
-              async>
-      </script>
     </section>
   );
 }
