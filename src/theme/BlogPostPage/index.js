@@ -23,21 +23,6 @@ function BlogPostPageMetadata(props) {
   const {keywords} = frontMatter;
   const image = assets.image ?? frontMatter.image;
 
-  const commentElement = useRef(null);
-
-  useEffect(() => {
-    // Update the document title using the browser API
-    let s = document.createElement("script");
-    s.src = "https://utteranc.es/client.js";
-    s.setAttribute("repo", "An0nymous0/ga0x-site");
-    s.setAttribute("issue-term", "pathname");
-    s.setAttribute("label", "comment✨💬✨");
-    s.setAttribute("theme", "github-light");
-    s.setAttribute("crossorigin", "anonymous");
-    s.async = true;
-    commentElement.current.appendChild(s);
-  }, []);
-
   return (
     <PageMetadata
       title={title}
@@ -75,6 +60,22 @@ function BlogPostPageContent(props) {
     toc_min_heading_level: tocMinHeadingLevel,
     toc_max_heading_level: tocMaxHeadingLevel,
   } = frontMatter;
+
+  const commentElement = useRef(null);
+
+  useEffect(() => {
+    // Update the document title using the browser API
+    let s = document.createElement("script");
+    s.src = "https://utteranc.es/client.js";
+    s.setAttribute("repo", "An0nymous0/ga0x-site");
+    s.setAttribute("issue-term", "pathname");
+    s.setAttribute("label", "comment✨💬✨");
+    s.setAttribute("theme", "github-light");
+    s.setAttribute("crossorigin", "anonymous");
+    s.async = true;
+    commentElement.current.appendChild(s);
+  }, []);
+
   return (
     <BlogLayout
       sidebar={sidebar}
