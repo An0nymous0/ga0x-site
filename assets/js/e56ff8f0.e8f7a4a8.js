@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkmy_website=self.webpackChunkmy_website||[]).push([[7498],{1737:function(e){e.exports=JSON.parse('{"allTagsPath":"/blog/tags","name":"JetBrains","count":1,"permalink":"/blog/tags/jet-brains"}')}}]);

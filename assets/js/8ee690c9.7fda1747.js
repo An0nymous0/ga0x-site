@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkmy_website=self.webpackChunkmy_website||[]).push([[2932],{3394:function(e){e.exports=JSON.parse('{"allTagsPath":"/blog/tags","name":"IDE","count":1,"permalink":"/blog/tags/ide"}')}}]);
