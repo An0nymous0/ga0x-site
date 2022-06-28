@@ -7,7 +7,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'An0nymous',
-  tagline: 'Dinosaurs are cool',
+  tagline: 'record daily work',
   url: 'https://ga0x.com',
   baseUrl: '/',
   onBrokenLinks: 'throw',
