@@ -1,28 +1,20 @@
-/**
- * Copyright (c) Facebook, Inc. and its affiliates.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- */
-import React, { useEffect, useRef } from 'react';
-import BlogLayout from '@theme/BlogLayout';
-import BlogPostItem from '@theme/BlogPostItem';
-import BlogPostPaginator from '@theme/BlogPostPaginator';
+import React, { useEffect, useRef }  from 'react';
+import clsx from 'clsx';
 import {
   PageMetadata,
   HtmlClassNameProvider,
   ThemeClassNames,
 } from '@docusaurus/theme-common';
+import BlogLayout from '@theme/BlogLayout';
+import BlogPostItem from '@theme/BlogPostItem';
+import BlogPostPaginator from '@theme/BlogPostPaginator';
 import TOC from '@theme/TOC';
-import clsx from 'clsx';
-
 function BlogPostPageMetadata(props) {
   const {content: BlogPostContents} = props;
   const {assets, metadata} = BlogPostContents;
   const {title, description, date, tags, authors, frontMatter} = metadata;
   const {keywords} = frontMatter;
   const image = assets.image ?? frontMatter.image;
-
   return (
     <PageMetadata
       title={title}
@@ -50,7 +42,6 @@ function BlogPostPageMetadata(props) {
     </PageMetadata>
   );
 }
-
 function BlogPostPageContent(props) {
   const {content: BlogPostContents, sidebar} = props;
   const {assets, metadata} = BlogPostContents;
@@ -106,7 +97,6 @@ function BlogPostPageContent(props) {
     </BlogLayout>
   );
 }
-
 export default function BlogPostPage(props) {
   return (
     <HtmlClassNameProvider
