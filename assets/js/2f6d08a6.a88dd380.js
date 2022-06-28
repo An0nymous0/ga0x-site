@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkmy_website=self.webpackChunkmy_website||[]).push([[4979],{8402:function(e){e.exports=JSON.parse('{"allTagsPath":"/blog/tags","name":"REST API","count":1,"permalink":"/blog/tags/rest-api"}')}}]);
