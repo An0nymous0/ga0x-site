@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/">
     <channel>
         <title>An0nymous Blog</title>
-        <link>https://ga0x.com/blog</link>
+        <link>https://www.ga0x.com/blog</link>
         <description>An0nymous Blog</description>
         <lastBuildDate>Tue, 28 Jun 2022 00:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
@@ -10,7 +10,7 @@
         <language>zh-Hans</language>
         <item>
             <title><![CDATA[ncdu 磁盘分析查看工具使用]]></title>
-            <link>https://ga0x.com/blog/2022/06/28/ncdu-tools</link>
+            <link>https://www.ga0x.com/blog/2022/06/28/ncdu-tools</link>
             <guid>/2022/06/28/ncdu-tools</guid>
             <pubDate>Tue, 28 Jun 2022 00:00:00 GMT</pubDate>
             <description><![CDATA[简介]]></description>
@@ -40,7 +40,7 @@ q 退出ncdu <br></p>]]></content:encoded>
         </item>
         <item>
             <title><![CDATA[Redis lettuce驱动连接出现 NOAUTH Authentication required.]]></title>
-            <link>https://ga0x.com/blog/2021/11/23/lettuce-error-noauth</link>
+            <link>https://www.ga0x.com/blog/2021/11/23/lettuce-error-noauth</link>
             <guid>/2021/11/23/lettuce-error-noauth</guid>
             <pubDate>Tue, 23 Nov 2021 00:00:00 GMT</pubDate>
             <description><![CDATA[问题]]></description>
@@ -51,7 +51,7 @@ q 退出ncdu <br></p>]]></content:encoded>
         </item>
         <item>
             <title><![CDATA[graalvm 在 macOS Catalina 上提示无法验证开发人员警告问题]]></title>
-            <link>https://ga0x.com/blog/2021/11/03/graalvm-damaged-error</link>
+            <link>https://www.ga0x.com/blog/2021/11/03/graalvm-damaged-error</link>
             <guid>/2021/11/03/graalvm-damaged-error</guid>
             <pubDate>Wed, 03 Nov 2021 00:00:00 GMT</pubDate>
             <description><![CDATA[img.png]]></description>
@@ -61,7 +61,7 @@ q 退出ncdu <br></p>]]></content:encoded>
         </item>
         <item>
             <title><![CDATA[JetBrains全系列软件激活教程]]></title>
-            <link>https://ga0x.com/blog/2021/11/01/jetbrains-crack</link>
+            <link>https://www.ga0x.com/blog/2021/11/01/jetbrains-crack</link>
             <guid>/2021/11/01/jetbrains-crack</guid>
             <pubDate>Mon, 01 Nov 2021 00:00:00 GMT</pubDate>
             <description><![CDATA[img.png]]></description>
@@ -83,7 +83,7 @@ q 退出ncdu <br></p>]]></content:encoded>
         </item>
         <item>
             <title><![CDATA[优秀的 REST API 设计指南]]></title>
-            <link>https://ga0x.com/blog/2020/07/31/rest-api-design</link>
+            <link>https://www.ga0x.com/blog/2020/07/31/rest-api-design</link>
             <guid>/2020/07/31/rest-api-design</guid>
             <pubDate>Fri, 31 Jul 2020 00:00:00 GMT</pubDate>
             <description><![CDATA[本文建议读者：]]></description>
@@ -93,7 +93,7 @@ q 退出ncdu <br></p>]]></content:encoded>
         </item>
         <item>
             <title><![CDATA[CentOS 7 下 yum 安装和配置 NFS]]></title>
-            <link>https://ga0x.com/blog/2020/07/28/centos7-install-nfs</link>
+            <link>https://www.ga0x.com/blog/2020/07/28/centos7-install-nfs</link>
             <guid>/2020/07/28/centos7-install-nfs</guid>
             <pubDate>Tue, 28 Jul 2020 00:00:00 GMT</pubDate>
             <description><![CDATA[前言]]></description>
@@ -102,7 +102,7 @@ q 退出ncdu <br></p>]]></content:encoded>
         </item>
         <item>
             <title><![CDATA[了解一致性哈希]]></title>
-            <link>https://ga0x.com/blog/consistent-hash</link>
+            <link>https://www.ga0x.com/blog/consistent-hash</link>
             <guid>consistent-hash</guid>
             <pubDate>Mon, 27 Jul 2020 00:00:00 GMT</pubDate>
             <description><![CDATA[了解一致性HASH之前我们先来了解下取模算法]]></description>
