@@ -8,7 +8,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 const config = {
   title: 'An0nymous',
   tagline: 'record daily work',
-  url: 'https://ga0x.com',
+  url: 'https://www.ga0x.com',
   baseUrl: '/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
