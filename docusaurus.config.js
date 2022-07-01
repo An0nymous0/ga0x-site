@@ -38,7 +38,7 @@ const config = {
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
+            'https://github.com/An0nymous0/ga0x-site/tree/main',
           showLastUpdateTime: true
         },
         blog: {
@@ -48,7 +48,7 @@ const config = {
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
+            'https://github.com/An0nymous0/ga0x-site/tree/main',
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
@@ -133,7 +133,7 @@ const config = {
       prism: {
         theme: lightCodeTheme,
         darkTheme: darkCodeTheme,
-        additionalLanguages: ['java'],
+        additionalLanguages: ['java', 'powershell'],
       },
     }),
 

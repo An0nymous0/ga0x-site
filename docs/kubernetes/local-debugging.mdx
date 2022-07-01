@@ -1,0 +1,331 @@
+---
+title: 'kubernetes 在本地开发和调试服务'
+sidebar_label: 'kubernetes 在本地开发和调试服务'
+---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+Kubernetes 应用程序通常由多个独立的服务组成，每个服务都在自己的容器中运行。 在远端的 Kubernetes 集群上开发和调试这些服务可能很麻烦 比如云原生微服务Istio、Spring Cloud等， 需要在运行的容器上打开 Shell， 以运行调试工具。
+
+下面介绍两款开源工具
+## telepresence
+Telepresence 是一个云原生计算基金会沙盒项目，是 kubernetes 和 openshift 微服务的快速本地开发工具
+
+### 安装
+
+<Tabs>
+  <TabItem value="1" label="GNU-Linux">
+
+```shell
+# 1. Download the latest binary (~50 MB):
+sudo curl -fL https://app.getambassador.io/download/tel2/linux/amd64/latest/telepresence -o /usr/local/bin/telepresence
+
+# 2. Make the binary executable:
+sudo chmod a+x /usr/local/bin/telepresence
+```
+
+  </TabItem>
+  <TabItem value="2" label="macOS" default>
+
+```shell
+# Intel Macs
+
+# Install via brew:
+brew install datawire/blackbird/telepresence
+
+# OR install manually:
+# 1. Download the latest binary (~60 MB):
+sudo curl -fL https://app.getambassador.io/download/tel2/darwin/amd64/latest/telepresence -o /usr/local/bin/telepresence
+
+# 2. Make the binary executable:
+sudo chmod a+x /usr/local/bin/telepresence
+
+# Apple silicon Macs
+
+# Install via brew:
+brew install datawire/blackbird/telepresence-arm64
+
+# OR Install manually:
+# 1. Download the latest binary (~60 MB):
+sudo curl -fL https://app.getambassador.io/download/tel2/darwin/arm64/latest/telepresence -o /usr/local/bin/telepresence
+
+# 2. Make the binary executable:
+sudo chmod a+x /usr/local/bin/telepresence
+```
+
+  </TabItem>
+  <TabItem value="3" label="Windows">
+
+```shell
+# Windows is in Developer Preview, here is how you can install it:
+# Make sure you run the following from Powershell as Administrator
+# 1. Download the latest windows zip containing telepresence.exe and its dependencies (~50 MB):
+curl -fL https://app.getambassador.io/download/tel2/windows/amd64/latest/telepresence.zip -o telepresence.zip
+
+# 2. Unzip the zip file to a suitable directory + cleanup zip
+Expand-Archive -Path telepresence.zip
+Remove-Item 'telepresence.zip'
+cd telepresence
+
+# 3. Run the install-telepresence.ps1 to install telepresence's dependencies. It will install telepresence to
+# C:\telepresence by default, but you can specify a custom path $path with -Path $path
+Set-ExecutionPolicy Bypass -Scope Process
+.\install-telepresence.ps1
+
+# 4. Remove the unzipped directory
+cd ..
+Remove-Item telepresence
+# 5. Close your current Powershell and open a new one. Telepresence should now be usable as telepresence.exe
+```
+
+  </TabItem>
+</Tabs>
+
+### 常用命令
+
+#### 连接集群
+```shell
+telepresence connect
+```
+您现在可以访问远程 Kubernetes API 服务器，就好像您在同一个网络上一样。您现在可以使用任何本地工具连接到集群中的任何服务。
+
+
+#### 拦截服务列表
+```shell
+telepresence list
+```
+
+#### 拦截指定服务
+```shell
+telepresence intercept <service-name> --port <local-port>[:<remote-port>] --env-file <path-to-env-file>
+```
+- For `--port`: 指定服务的本地实例正在运行的端口。如果被拦截的服务暴露了多个端口，在冒号后指定要拦截的端口。
+- For `--env-file`: 指定 Telepresence 的文件路径以写入在 pod 中设置的环境变量。下面的示例显示 Telepresence 拦截前往 `example-service` 服务的流量。请求现在到达集群中端口 `http` 上的服务，被路由到工作站上的 8080，并将服务的环境变量写入 ~/example-service-intercept.env。
+
+```shell
+telepresence intercept example-service --port 8080:http --env-file ~/example-service-intercept.env
+
+# Using Deployment example-service
+# intercepted
+# Intercept name: example-service
+# State         : ACTIVE
+# Workload kind : Deployment
+# Destination   : 127.0.0.1:8080
+# Intercepting  : all TCP connections
+```
+
+### Telepresence 是如何工作的？
+Telepresence 会在远程集群中运行的现有应用程序容器旁边安装流量代理 sidecar。 当它捕获进入 Pod 的所有流量请求时，不是将其转发到远程集群中的应用程序， 而是路由所有流量（当创建全局拦截器时） 或流量的一个子集（当创建自定义拦截器时） 到本地开发环境。
+
+### Telepresence 官方网站
+[Telepresence](https://www.telepresence.io/)
+
+### 参考网站
+- [使用 telepresence 在本地开发和调试服务](https://kubernetes.io/zh-cn/docs/tasks/debug/debug-cluster/local-debugging/)<br/>
+- [Intercept a service in your own environment](https://www.telepresence.io/docs/latest/howtos/intercepts/)
+
+
+## kt-connect
+来自阿里 KtConnect（Kt为Kubernetes Toolkit集群工具包的简写）是一款基于Kubernetes环境用于提高本地测试联调效率的小工具。
+
+### 安装
+<Tabs>
+  <TabItem value="1" label="macOS" default>
+
+软件包:
+- [MacOS x86 64位](https://github.com/alibaba/kt-connect/releases/download/v0.3.6-beta1/ktctl_0.3.6-beta1_MacOS_x86_64.tar.gz)
+- [MacOS ARM 64位](https://github.com/alibaba/kt-connect/releases/download/v0.3.6-beta1/ktctl_0.3.6-beta1_MacOS_arm_64.tar.gz)
+
+下载并安装KT（以x86 64位版本为例）
+
+```shell
+curl -OL https://github.com/alibaba/kt-connect/releases/download/v0.3.6-beta1/ktctl_0.3.6-beta1_MacOS_x86_64.tar.gz
+tar zxf ktctl_0.3.6-beta1_MacOS_x86_64.tar.gz
+mv ktctl /usr/local/bin/ktctl
+ktctl --version
+```
+
+  </TabItem>
+  <TabItem value="2" label="Linux">
+
+软件包:
+- [Linux x86 64位](https://github.com/alibaba/kt-connect/releases/download/v0.3.6-beta1/ktctl_0.3.6-beta1_Linux_x86_64.tar.gz)
+- [Linux x86 32位](https://github.com/alibaba/kt-connect/releases/download/v0.3.6-beta1/ktctl_0.3.6-beta1_linux_i386.tar.gz)
+- [Linux ARM 64位](https://github.com/alibaba/kt-connect/releases/download/v0.3.6-beta1/ktctl_0.3.6-beta1_Linux_arm_64.tar.gz)
+
+下载并安装KT（以x86 64位版本为例）
+
+```shell
+curl -OL https://github.com/alibaba/kt-connect/releases/download/v0.3.6-beta1/ktctl_0.3.6-beta1_Linux_x86_64.tar.gz
+tar zxf ktctl_0.3.6-beta1_Linux_x86_64.tar.gz
+mv ktctl /usr/local/bin/ktctl
+ktctl --version
+```
+
+  </TabItem>
+  <TabItem value="3" label="Windows">
+
+软件包:
+- [Windows x86 64位](https://github.com/alibaba/kt-connect/releases/download/v0.3.6-beta1/ktctl_0.3.6-beta1_Windows_x86_64.zip)
+- [Windows x86 32位](https://github.com/alibaba/kt-connect/releases/download/v0.3.6-beta1/ktctl_0.3.6-beta1_Windows_i386.zip)
+- [Windows ARM 64位](https://github.com/alibaba/kt-connect/releases/download/v0.3.6-beta1/ktctl_0.3.6-beta1_Windows_arm_64.zip)
+
+下载并解压，将包中的wintun.dll和可执行文件ktctl.exe一起放到PATH环境变量指定的任意位置。
+
+  </TabItem>
+</Tabs>
+
+| 你也可以从[Github Releases](https://github.com/alibaba/kt-connect/releases)下载历史版本的软件包
+
+### 常用命令
+
+#### 连接集群
+
+```shell
+$ sudo ktctl connect
+00:00AM INF KtConnect start at <PID>
+... ...
+00:00AM INF ---------------------------------------------------------------
+00:00AM INF  All looks good, now you can access to resources in the kubernetes cluster
+00:00AM INF ---------------------------------------------------------------
+```
+现在本地已经能够直接访问集群资源了，可通过浏览器或curl命令来验证：
+```shell
+$ curl http://10.51.0.162:8080    # 在本地直接访问PodIP
+kt-connect demo v1
+
+$ curl http://172.21.6.39:8080    # 在本地访问ClusterIP
+kt-connect demo v1
+
+$ curl http://tomcat:8080         # 使用<service>作为域名访问服务
+kt-connect demo v1
+
+$ curl http://tomcat.default:8080     # 使用<servicename>.<namespace>域名访问服务
+kt-connect demo v1
+
+$ curl http://tomcat.default.svc.cluster.local:8080    # 使用集群内完整域名访问服务
+kt-connect demo v1
+```
+
+#### 将集群流量转发到本地
+KtConnect提供了三种能够让集群访问本地服务的命令，分别用于不同的调试场景。
+
+- Exchange：将集群指定服务的所有流量转向本地
+- Mesh：将集群指定服务的部分流量（按Header或Label规则）转向本地
+- Preview：在集群中创建一个新服务，并将其流量转向本地
+
+<Tabs>
+  <TabItem value="1" label="Exchange" default>
+
+将集群里访问指定服务的所有请求拦截并转发到本地的指定端口，通常用于调试在测试环境调用链上的指定服务。
+
+```
+┌──────────┐     ┌─ ── ── ──     ┌──────────┐
+│ ServiceA ├─┬─►x│ ServiceB │ ┌─►│ ServiceC │
+└──────────┘ │    ── ── ── ─┘ │  └──────────┘
+         exchange             │
+             │   ┌──────────┐ │
+             └──►│ ServiceB'├─┘
+                 └──────────┘
+```
+
+使用`ktctl exchange`命令将先前部署到集群中的`tomcat`服务流量全部转到本地`8080`端口：
+
+```
+$ ktctl exchange tomcat --expose 8080
+00:00AM INF KtConnect start at <PID>
+... ...
+---------------------------------------------------------------
+Now all request to service 'tomcat' will be redirected to local
+---------------------------------------------------------------
+```
+
+在本地或者集群中访问示例开始时部署到集群的`tomcat`服务，查看输出结果：
+
+> 注意如果未运行`ktctl connect`，只能从集群内访问
+
+```
+$ curl http://tomcat:8080
+kt-connect local v2
+```
+
+可以看到，访问集群里`tomcat`服务的请求被路由到了本地的Tomcat实例，现在就可以直接在本地调试这个服务了。
+
+  </TabItem>
+  <TabItem value="2" label="Mesh">
+
+将集群里访问指定服务的部分请求拦截并转发到本地的指定端口。
+
+```
+┌──────────┐     ┌──────────┐    ┌──────────┐
+│ ServiceA ├─┬──►│ ServiceB │─┬─►│ ServiceC │
+└──────────┘ │   └──────────┘ │  └──────────┘
+            mesh              │
+             │   ┌──────────┐ │
+             └──►│ ServiceB'├─┘
+                 └──────────┘
+```
+
+Mesh命令有两种运行模式，默认的`auto`模式不需要额外的服务网格组件，能够直接实现HTTP请求的自动按需路由。
+
+为了便于验证结果，先重置一下集群里Tomcat服务的首页内容。然后通过`ktctl mesh`命令创建代理Pod：
+
+```
+$ kubectl exec deployment/tomcat -c tomcat -- /bin/bash -c 'mkdir webapps/ROOT; echo "kt-connect demo v1" > webapps/ROOT/index.html'
+
+$ ktctl mesh tomcat --expose 8080
+00:00AM INF KtConnect start at <PID>
+... ...
+--------------------------------------------------------------
+Now you can access your service by header 'VERSION: feo3x'
+--------------------------------------------------------------
+```
+
+在命令日志的末尾，输出了一个特定的Header值。此时，直接访问集群里的`tomcat`服务，流量将正常进入集群的服务实例：
+
+```
+$ curl http://tomcat:8080
+kt-connect demo v1
+```
+
+若请求包含Mesh命令输出的Header，则流量将自动被本地的服务实例接收。
+
+```
+$ curl -H 'VERSION: feo3x' http://tomcat:8080
+kt-connect local v2
+```
+
+在实际使用时，可结合[ModHeader插件](https://github.com/bewisse/modheader)，使得只有开发者从自己浏览器发出的请求会访问其本地的服务进程。
+
+除此以外，还有一种可灵活配置路由规则的`manual`模式，该模式下KtConnect不会自动创建路由，在Mesh命令运行后，访问指定服务的流量将随机访问集群服务和本地实例。您可以自行使用任何服务网格组件（譬如Istio）创建基于`version`标签的路由规则，将特定流量转发到本地。详见[Manual Mesh](https://alibaba.github.io/kt-connect/#/zh-cn/reference/manual_mesh)文档。
+
+`ktctl exchange`与`ktctl mesh`命令的最大区别在于，前者会将原应用实例流量全部替换为由本地服务接收，而后者仅将包含指定Header的流量导流到本地，同时保证测试环境正常链路始终可用。
+
+  </TabItem>
+  <TabItem value="3" label="Preview">
+
+将本地运行的服务实例注册到集群上。与前两种命令不同，`ktctl preview`主要用于将本地开发中的服务提供给其他开发者进行联调和预览。
+
+以下命令会将运行在本地`8080`端口的服务注册到测试集群，命名为`tomcat-preview`。
+
+```
+$ ktctl preview tomcat-preview --expose 8080
+00:00AM INF KtConnect start at <PID>
+... ...
+---------------------------------------------------------------
+Now you can access your local service in cluster by name 'tomcat-preview'
+---------------------------------------------------------------
+```
+
+现在集群里的服务就可以通过`tomcat-preview`名称来访问本地暴露的服务实例了，其他开发者也可以在执行`ktctl connect`后，直接通过`tomcat-preview`服务名称来预览该服务的实时情况：
+
+```
+$ curl http://tomcat-preview:8080
+kt-connect local v2
+```
+
+  </TabItem>
+</Tabs>
+
+### 官方网站
+[KtConnect](https://alibaba.github.io/kt-connect/#/)
