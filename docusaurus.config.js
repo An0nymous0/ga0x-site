@@ -78,6 +78,7 @@ const config = {
             label: '笔记',
           },
           {to: '/blog', label: '文章', position: 'left'},
+          {to: '/devtools', label: 'Devtools开发工具', position: 'left'},
           {
             href: 'https://github.com/An0nymous0',
             label: 'GitHub',
