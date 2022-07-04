@@ -2,19 +2,9 @@ import React from "react"
 import { useForm } from "react-hook-form";
 import ClipboardJS from "clipboard";
 
-import { styled } from '@mui/material/styles';
 import TextField from '@mui/material/TextField';
 import Grid from '@mui/material/Grid';
-import Paper from '@mui/material/Paper';
 import Button from '@mui/material/Button';
-
-const Item = styled(Paper)(({ theme }) => ({
-  backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
-  ...theme.typography.body2,
-  padding: theme.spacing(1),
-  textAlign: "center",
-  color: theme.palette.text.secondary
-}))
 
 var clipboard = new ClipboardJS('#copy');
 clipboard.on('success', function(e) {
@@ -33,7 +23,8 @@ export default function ToolsgKidU() {
     defaultValues: {
       input: 'A1\nA2\nA3\nA4',
       prefix: '\'',
-      suffix: '\','
+      suffix: '\',',
+      output: '',
     }
   });
 
@@ -44,7 +35,7 @@ export default function ToolsgKidU() {
     data.input.split('\n').forEach(function(v, i) {
       ouputData += prefix + v + suffix + "\r";
     })
-    setValue('output',ouputData)
+    setValue("output", ouputData)
     console.log(ouputData)
   }
 
