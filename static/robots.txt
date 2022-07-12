@@ -1,0 +1,4 @@
+Sitemap: https://www.ga0x.com/sitemap.xml
+
+User-agent: *
+Disallow: /
