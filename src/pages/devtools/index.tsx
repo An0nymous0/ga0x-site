@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useEffect, useRef, useState } from "react"
 import Loadable from 'react-loadable'
 
 import Layout from "@theme/Layout";
@@ -37,6 +37,27 @@ export default function Devtools() {
     return <Component/>
   }
 
+  const commentElement = useRef(null);
+
+  useEffect(() => {
+    // Update the document messages using the browser API
+    let s = document.createElement("script");
+    s.src = "https://giscus.app/client.js";
+    s.setAttribute("data-repo", "An0nymous0/ga0x-site");
+    s.setAttribute("data-repo-id", "MDEwOlJlcG9zaXRvcnkyODE4OTk3NzQ=");
+    s.setAttribute("data-category", "Comments");
+    s.setAttribute("data-category-id", "DIC_kwDOEM1y_s4CQK1p");
+    s.setAttribute("data-mapping", "pathname");
+    s.setAttribute("data-reactions-enabled", "1");
+    s.setAttribute("data-emit-metadata", "0");
+    s.setAttribute("data-input-position", "bottom");
+    s.setAttribute("data-theme", "light");
+    s.setAttribute("data-lang", "zh-CN");
+    s.setAttribute("crossorigin", "anonymous");
+    s.async = true;
+    commentElement.current.appendChild(s);
+  }, []);
+
   return (
     <Layout title="Devtools" description="在线工具">
       <nav className="navbar navbar--primary">
@@ -64,6 +85,7 @@ export default function Devtools() {
         <Container>
           <h1>{currentToolsConfig.name}</h1>
           <ToolsRender name={currentToolsConfig.id}/>
+          <div style={{marginTop:'20px'}} ref={commentElement}></div>
         </Container>
       </Box>
     </Layout>
