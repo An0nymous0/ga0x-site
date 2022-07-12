@@ -10,7 +10,7 @@ export default function DocItem(props) {
   const commentElement = useRef(null);
 
   useEffect(() => {
-    // Update the document title using the browser API
+    // Update the document messages using the browser API
     let s = document.createElement("script");
     s.src = "https://giscus.app/client.js";
     s.setAttribute("data-repo", "An0nymous0/ga0x-site");
