@@ -12,11 +12,17 @@ export default function DocItem(props) {
   useEffect(() => {
     // Update the document title using the browser API
     let s = document.createElement("script");
-    s.src = "https://utteranc.es/client.js";
-    s.setAttribute("repo", "An0nymous0/ga0x-site");
-    s.setAttribute("issue-term", "pathname");
-    s.setAttribute("label", "comment✨💬✨");
-    s.setAttribute("theme", "github-light");
+    s.src = "https://giscus.app/client.js";
+    s.setAttribute("data-repo", "An0nymous0/ga0x-site");
+    s.setAttribute("data-repo-id", "MDEwOlJlcG9zaXRvcnkyODE4OTk3NzQ=");
+    s.setAttribute("data-category", "Comments");
+    s.setAttribute("data-category-id", "DIC_kwDOEM1y_s4CQK1p");
+    s.setAttribute("data-mapping", "pathname");
+    s.setAttribute("data-reactions-enabled", "1");
+    s.setAttribute("data-emit-metadata", "0");
+    s.setAttribute("data-input-position", "bottom");
+    s.setAttribute("data-theme", "light");
+    s.setAttribute("data-lang", "zh-CN");
     s.setAttribute("crossorigin", "anonymous");
     s.async = true;
     commentElement.current.appendChild(s);
@@ -30,7 +36,7 @@ export default function DocItem(props) {
           <MDXComponent />
         </DocItemLayout>
 
-        <div className="row">
+        <div style={{marginTop:'20px'}} className="row">
           <div className="col col--9" ref={commentElement}></div>
         </div>
       </HtmlClassNameProvider>
