@@ -6,6 +6,12 @@ tags: [JetBrains, IDE]
 
 ![img.png](img.png)
 
+:::tip
+
+2022.2 以上建议直接用推荐方式激活(#通过agent+激活码方式1)
+
+:::
+
 ## 通过agent+激活码方式1
 
 1. [JetBrains官网](https://www.jetbrains.com/) 下载安装你需要的 IDE，如果下载慢可以在 macwk 搜索 jetbrains。
@@ -24,7 +30,11 @@ tags: [JetBrains, IDE]
 
 ## 通过agent+激活码方式2（推荐）
 
-[点我传送](https://jetbra.in/s?source=https://ga0x.com)
+[点我传送](https://jetbra.in/s?source=https://www.ga0x.com)
+
+[常见问题](https://chip-tail-e93.notion.site/Ja-netfilter-9886afbfe1ed4d5e90a713e63718f647)
+
+2022.2 激活不了的仔细看常见问题里的 "激活操作"
 
 ---
 
