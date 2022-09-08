@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkmy_website=self.webpackChunkmy_website||[]).push([[5394],{6107:a=>{a.exports=JSON.parse('{"label":"GraalVM","permalink":"/blog/tags/graal-vm","allTagsPath":"/blog/tags","count":1}')}}]);
