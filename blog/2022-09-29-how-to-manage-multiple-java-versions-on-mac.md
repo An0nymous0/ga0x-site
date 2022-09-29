@@ -17,35 +17,32 @@ tags: [JAVA]
 现在使用以下命令安装 Java JDK **11**或更高版本`brew cask`：
 
 ```bash
-brew cask install java<version>
+brew install --cask temurin<version>
 
 # latest version
-brew cask install java
+brew install --cask temurin
 ```
 
 :::tip
 JDK 版本 **8**、**9**、**10**和**11**不再受支持。
 :::
 
-[AdoptOpenJDK](https://adoptopenjdk.net/)提供较旧的 Java 版本。从 AdoptOpenJDK 安装 Java JDK：
+[Adoptium](https://adoptium.net/)提供较旧的 Java 版本。从 Adoptium 安装 Java JDK：
 
 ```bash
 # install from third party repository
-brew tap adoptopenjdk/openjdk
+brew tap homebrew/cask-versions
 
-brew cask install adoptopenjdk<version>
+brew install --cask temurin<version>
 
 # Java 8
-brew cask install adoptopenjdk8
-
-# Java 9
-brew cask install adoptopenjdk9
-
-# Java 10
-brew cask install adoptopenjdk10
+brew install --cask temurin8
 
 # Java 11
-brew cask install adoptopenjdk11
+brew install --cask temurin11
+
+# Java 17
+brew install --cask temurin17
 ```
 
 ### 通过别名切换 Java JDK
@@ -57,13 +54,13 @@ export JAVA_HOME=$(/usr/libexec/java_home -v14)
 
 export JAVA_8_HOME=$(/usr/libexec/java_home -v1.8)
 export JAVA_11_HOME=$(/usr/libexec/java_home -v11)
-export JAVA_14_HOME=$(/usr/libexec/java_home -v14)
+export JAVA_17_HOME=$(/usr/libexec/java_home -v17)
 ```
 
 检查默认 Java 版本和安装路径：
 
 ```bash
-java -version # 14
+java -version # 17
 ```
 
 `.zshrc`为您的或`.bash_profile`为每个已安装的 Java 版本添加一个别名。别名`JAVA_HOME`与选定的`JAVA_VERSION_HOME`.
@@ -71,7 +68,7 @@ java -version # 14
 ```bash
 alias java8='export JAVA_HOME=$JAVA_8_HOME'
 alias java11='export JAVA_HOME=$JAVA_11_HOME'
-alias java14='export JAVA_HOME=$JAVA_14_HOME'
+alias java17='export JAVA_HOME=$JAVA_17_HOME'
 ```
 
 现在，要在 Java 版本之间切换，请在终端中输入别名`java8`。执行`java -version`以验证您现在使用的是正确的 Java 版本
