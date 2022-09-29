@@ -1,6 +1,5 @@
 ---
-title: 'macOS运行Java GUI程序提示缺少字体或提示运行失败问题解决
-'
+title: 'macOS运行Java GUI程序提示缺少字体或提示运行失败问题解决'
 authors: gaoxu
 tags: [JAVA]
 ---
