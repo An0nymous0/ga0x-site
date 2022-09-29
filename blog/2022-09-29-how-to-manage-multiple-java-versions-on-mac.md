@@ -50,7 +50,7 @@ brew install --cask temurin17
 在您的或您的主要 Java 版本中设置`JAVA_HOME`路径，并为每个已安装的 Java 版本添加导出。`.zshrc` `.bash_profile`
 
 ```bash
-export JAVA_HOME=$(/usr/libexec/java_home -v14)
+export JAVA_HOME=$(/usr/libexec/java_home -v17)
 
 export JAVA_8_HOME=$(/usr/libexec/java_home -v1.8)
 export JAVA_11_HOME=$(/usr/libexec/java_home -v11)
