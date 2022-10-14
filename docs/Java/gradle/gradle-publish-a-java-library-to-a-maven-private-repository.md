@@ -4,6 +4,12 @@ sidebar_label: 'Gradle 打包并上传到私服以及如何配置依赖'
 sidebar_position: 1
 ---
 
+:::tip
+
+在开始尝试制作第三方应用jar或或一些公共模块时常常会遇到 如何打包上传到maven私服和其他应用在引用时如何同时引入控制依赖。
+
+:::
+
 ### 添加gradle plugins
 
 ```groovy
