@@ -162,6 +162,28 @@ spec:
 
 到了这一步访问你的域名应该已经是 https 的了，至于自动更新 cert-manager 会帮我们自动完成，如果有特定需要可以自行去官网查看 Certificate 资源的配置项，同时 Istio Ingress Gateway 的底层是基于 envoyproxy 的，envoyproxy 本身有秘密发现服务 (SDS) 它会帮我们检查证书和推送到需要用到证书的 Envoy 实例上， Envoy 会立即使用新证书并且无序人工干预重新部署。
 
+## 其他
+如果想添加通配符证书 *.example.com 则必须用dns-01方式获取。
+
+请参考 Let’s Encrypt 说明 [颁发通配符证书](https://letsencrypt.org/zh-cn/docs/faq/#let-s-encrypt-%E9%A2%81%E5%8F%91%E9%80%9A%E9%85%8D%E7%AC%A6%E8%AF%81%E4%B9%A6%E5%90%97)
+
+例子
+```yaml
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: all-example-com-tls
+  namespace: istio-system
+spec:
+  secretName: all-example-com-tls
+  commonName: '*.example.com'
+  dnsNames:
+  - example.com
+  - '*.example.com'
+  issuerRef:
+    name: letsencrypt-cluster
+    kind: ClusterIssuer
+```
 ## 参考
 
 【Istio 集成 cert-manager】[https://istio.io/latest/docs/ops/integrations/certmanager/](https://istio.io/latest/docs/ops/integrations/certmanager/)
