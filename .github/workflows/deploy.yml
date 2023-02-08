@@ -16,15 +16,18 @@ jobs:
         #fix https://github.com/facebook/docusaurus/issues/2798#issuecomment-636602951
         with:
           fetch-depth: 0
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 7.26.3
       - uses: actions/setup-node@v3
         with:
           node-version: 18.x
-          cache: yarn
+          cache: pnpm
 
       - name: Install dependencies
-        run: yarn install
+        run: pnpm install
       - name: Build website
-        run: yarn build
+        run: pnpm build
 
       # Popular action to deploy to GitHub Pages:
       # Docs: https://github.com/peaceiris/actions-gh-pages#%EF%B8%8F-docusaurus
