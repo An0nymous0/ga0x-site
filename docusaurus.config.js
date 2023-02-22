@@ -64,6 +64,7 @@ const config = {
   themeConfig:
   /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
+      metadata: [{name: 'keywords', content: 'blog, 科技, 技术, 代码分享'}],
       navbar: {
         title: 'An0nymous',
         logo: {
