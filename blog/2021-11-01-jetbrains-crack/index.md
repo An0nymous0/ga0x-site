@@ -34,13 +34,28 @@ tags: [JetBrains, IDE]
 Or
 [点我传送](https://ooooooooooooooooooooooo.ooo/ooooοооoοᴏοoοᴏοoοᴏooοᴏoᴏoᴏооoоᴏᴏoоᴏᴏοоοоοоοоοоοоοоοоoоᴏоοоοᴏοоoοoоᴏᴏ)
 
+不会用或者 2022.2 激活不了的仔细看常见问题里的 "激活操作"
 [常见问题](https://chip-tail-e93.notion.site/Ja-netfilter-9886afbfe1ed4d5e90a713e63718f647)
-
-2022.2 激活不了的仔细看常见问题里的 "激活操作"
 
 ---
 
-## 无限重置试用
+## 通过激活服务器在线激活
+
+### 网站1
+1. 首先打开[https://search.censys.io/](https://search.censys.io/)这个网站
+2. 搜索框输入 services.http.response.headers.location: account.jetbrains.com/fls-auth
+3. 在搜索的返回结果中随便找一台服务器 找里面返回(Status Code 302)302的那条
+4. 打开 IDEA 激活选择 License server 填写上面找的服务器ip+端口激活即可
+
+### 网站2
+1. 首先打开[https://www.shodan.io/](https://www.shodan.io/)这个网站
+2. 搜索框输入 Location: https://account.jetbrains.com/fls-auth
+
+后面的步骤就和上面一样了
+
+原理就是利用搜索引擎寻找 jetbrains 授权服务器，如果寻找到的服务器用不了多换几个就好了 不稳定也同理
+
+## 无限重置试用(新版已废弃)
 
 > 此方法 Windows MacOS 通用
 
