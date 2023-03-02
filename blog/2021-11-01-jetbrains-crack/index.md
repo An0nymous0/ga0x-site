@@ -31,6 +31,8 @@ tags: [JetBrains, IDE]
 ## 通过agent+激活码方式2（推荐）
 
 [点我传送](https://jetbra.in/s?source=https://www.ga0x.com)
+Or
+[点我传送](https://ooooooooooooooooooooooo.ooo/ooooοооoοᴏοoοᴏοoοᴏooοᴏoᴏoᴏооoоᴏᴏoоᴏᴏοоοоοоοоοоοоοоοоoоᴏоοоοᴏοоoοoоᴏᴏ)
 
 [常见问题](https://chip-tail-e93.notion.site/Ja-netfilter-9886afbfe1ed4d5e90a713e63718f647)
 
