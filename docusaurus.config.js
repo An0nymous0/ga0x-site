@@ -6,7 +6,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'An0nymous',
+  title: 'Maxgao',
   tagline: 'record daily work',
   url: 'https://www.ga0x.com',
   baseUrl: '/',
