@@ -9,29 +9,24 @@ tags: [MongoDB, Develop]
 首先在你连接 MongoDB 前要确定的是你应该**认证身份的数据库**和你**要使用的数据库**
 
 ## 参考一下表格获得更好的理解
-+-------------------------------------------------------------------------------------+
-|Connection parameters                                    | Authentication | Current  |
-|                                                         | database       | database |
-+-------------------------------------------------------------------------------------+
-|mongo -u user -p pwd --authenticationDatabase admin myDB |     admin      |   myDB   |
-|mongo -u user -p pwd myDB                                |     myDB       |   myDB   |
-|mongo -u user -p pwd --authenticationDatabase admin      |     admin      |   test   |
-|mongo -u user -p pwd --host localhost:27017              |     admin      |   test   |
-|mongo -u user -p pwd                                     |     admin      |   test   |
-|mongo -u user -p pwd localhost:27017                     |     test       |   test   |
-|mongosh -u user -p pwd localhost:27017                   |     admin      |   test   | -> Different on mongosh and legacy mongo shell
-+-------------------------------------------------------------------------------------+
+| Connection parameters                                    | Authentication database | Current database |
+|----------------------------------------------------------|-------------------------|------------------|
+| mongo -u user -p pwd --authenticationDatabase admin myDB | admin                   | myDB             |
+| mongo -u user -p pwd myDB                                | myDB                    | myDB             |
+| mongo -u user -p pwd --authenticationDatabase admin      | admin                   | test             |
+| mongo -u user -p pwd --host localhost:27017              | admin                   | test             |
+| mongo -u user -p pwd                                     | admin                   | test             |
+| mongo -u user -p pwd localhost:27017                     | test                    | test             |
+| mongosh -u user -p pwd localhost:27017                   | admin                   | test             |  -> Different on mongosh and legacy mongo shell
 
 ## URI 方式
-+-------------------------------------------------------------------------------------+
-|Connection string                                        | Authentication | Current  |
-|                                                         | database       | database |
-+-------------------------------------------------------------------------------------+
-|"mongodb://user:pwd@hostname/myDB?authSource=admin"      |     admin      |   myDB   |
-|"mongodb://user:pwd@hostname/myDB"                       |     myDB       |   myDB   |
-|"mongodb://user:pwd@hostname?authSource=admin"           |     admin      |   test   |
-|"mongodb://user:pwd@hostname"                            |     admin      |   test   |
-+-------------------------------------------------------------------------------------+
+
+| Connection string                                      | Authentication database | Current database |
+|--------------------------------------------------------|-------------------------|------------------|
+| "mongodb://user:pwd@hostname/myDB?authSource=admin"    | admin                   | myDB             |
+| "mongodb://user:pwd@hostname/myDB"                     | myDB                    | myDB             |
+| "mongodb://user:pwd@hostname?authSource=admin"         | admin                   | test             |
+| "mongodb://user:pwd@hostname"                          | admin                   | test             |
 
 大多数情况是你没有指定 authSource 同时 要连接的数据库和用户不在一个库里，比如你创建了 admin 用户在 admin 库但是你要连接的是xxDB 导致的。
 
