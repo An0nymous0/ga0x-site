@@ -66,7 +66,7 @@ const config = {
     ({
       metadata: [{name: 'keywords', content: 'blog, 科技, 技术, 代码分享'}],
       navbar: {
-        title: 'An0nymous',
+        title: 'Maxgao',
         logo: {
           alt: 'My Site Logo',
           src: 'img/logo.svg',
