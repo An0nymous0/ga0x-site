@@ -13,26 +13,7 @@
         <link href="https://www.ga0x.com/blog/2023/03/16/mongo-authentication-failed"/>
         <updated>2023-03-16T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[开发过程中有时会遇到用户名和密码明明是对的 程序里死活都连接不上提示没有权限的问题，根源在配置和mongo的认证机制上。]]></summary>
-        <content type="html"><![CDATA[<p>开发过程中有时会遇到用户名和密码明明是对的 程序里死活都连接不上提示没有权限的问题，根源在配置和mongo的认证机制上。</p><p>首先在你连接 MongoDB 前要确定的是你应该<strong>认证身份的数据库</strong>和你<strong>要使用的数据库</strong></p><h2 class="anchor anchorWithStickyNavbar_er05" id="参考一下表格获得更好的理解">参考一下表格获得更好的理解<a href="#参考一下表格获得更好的理解" class="hash-link" aria-label="参考一下表格获得更好的理解的直接链接" title="参考一下表格获得更好的理解的直接链接">​</a></h2><p>+-------------------------------------------------------------------------------------+
-|Connection parameters                                    | Authentication | Current  |
-|                                                         | database       | database |
-+-------------------------------------------------------------------------------------+
-|mongo -u user -p pwd --authenticationDatabase admin myDB |     admin      |   myDB   |
-|mongo -u user -p pwd myDB                                |     myDB       |   myDB   |
-|mongo -u user -p pwd --authenticationDatabase admin      |     admin      |   test   |
-|mongo -u user -p pwd --host localhost:27017              |     admin      |   test   |
-|mongo -u user -p pwd                                     |     admin      |   test   |
-|mongo -u user -p pwd localhost:27017                     |     test       |   test   |
-|mongosh -u user -p pwd localhost:27017                   |     admin      |   test   | -&gt; Different on mongosh and legacy mongo shell
-+-------------------------------------------------------------------------------------+</p><h2 class="anchor anchorWithStickyNavbar_er05" id="uri-方式">URI 方式<a href="#uri-方式" class="hash-link" aria-label="URI 方式的直接链接" title="URI 方式的直接链接">​</a></h2><p>+-------------------------------------------------------------------------------------+
-|Connection string                                        | Authentication | Current  |
-|                                                         | database       | database |
-+-------------------------------------------------------------------------------------+
-|"mongodb://user:pwd@hostname/myDB?authSource=admin"      |     admin      |   myDB   |
-|"mongodb://user:pwd@hostname/myDB"                       |     myDB       |   myDB   |
-|"mongodb://user:pwd@hostname?authSource=admin"           |     admin      |   test   |
-|"mongodb://user:pwd@hostname"                            |     admin      |   test   |
-+-------------------------------------------------------------------------------------+</p><p>大多数情况是你没有指定 authSource 同时 要连接的数据库和用户不在一个库里，比如你创建了 admin 用户在 admin 库但是你要连接的是xxDB 导致的。</p><p>如上述 比如你填写的 URI 是 mongodb://user:pwd@hostname/myDB 那么就会报错。 修改成 mongodb://user:pwd@hostname/myDB?authSource=admin 就好了，</p><p><strong>authSource</strong>是用户所在的数据库 <strong>/myDB</strong> 是你要连接的数据库。 这里背后其实有个逻辑 如果你的用户配置的是 userAdminAnyDatabase 权限一般会创建在 admin 库 这样在连接其他的库的时候必须指定 上述两个参数才可以。</p>]]></content>
+        <content type="html"><![CDATA[<p>开发过程中有时会遇到用户名和密码明明是对的 程序里死活都连接不上提示没有权限的问题，根源在配置和mongo的认证机制上。</p><p>首先在你连接 MongoDB 前要确定的是你应该<strong>认证身份的数据库</strong>和你<strong>要使用的数据库</strong></p><h2 class="anchor anchorWithStickyNavbar_er05" id="参考一下表格获得更好的理解">参考一下表格获得更好的理解<a href="#参考一下表格获得更好的理解" class="hash-link" aria-label="参考一下表格获得更好的理解的直接链接" title="参考一下表格获得更好的理解的直接链接">​</a></h2><table><thead><tr><th>Connection parameters</th><th>Authentication database</th><th>Current database</th></tr></thead><tbody><tr><td>mongo -u user -p pwd --authenticationDatabase admin myDB</td><td>admin</td><td>myDB</td></tr><tr><td>mongo -u user -p pwd myDB</td><td>myDB</td><td>myDB</td></tr><tr><td>mongo -u user -p pwd --authenticationDatabase admin</td><td>admin</td><td>test</td></tr><tr><td>mongo -u user -p pwd --host localhost:27017</td><td>admin</td><td>test</td></tr><tr><td>mongo -u user -p pwd</td><td>admin</td><td>test</td></tr><tr><td>mongo -u user -p pwd localhost:27017</td><td>test</td><td>test</td></tr><tr><td>mongosh -u user -p pwd localhost:27017</td><td>admin</td><td>test</td></tr></tbody></table><h2 class="anchor anchorWithStickyNavbar_er05" id="uri-方式">URI 方式<a href="#uri-方式" class="hash-link" aria-label="URI 方式的直接链接" title="URI 方式的直接链接">​</a></h2><table><thead><tr><th>Connection string</th><th>Authentication database</th><th>Current database</th></tr></thead><tbody><tr><td>"mongodb://user:pwd@hostname/myDB?authSource=admin"</td><td>admin</td><td>myDB</td></tr><tr><td>"mongodb://user:pwd@hostname/myDB"</td><td>myDB</td><td>myDB</td></tr><tr><td>"mongodb://user:pwd@hostname?authSource=admin"</td><td>admin</td><td>test</td></tr><tr><td>"mongodb://user:pwd@hostname"</td><td>admin</td><td>test</td></tr></tbody></table><p>大多数情况是你没有指定 authSource 同时 要连接的数据库和用户不在一个库里，比如你创建了 admin 用户在 admin 库但是你要连接的是xxDB 导致的。</p><p>如上述 比如你填写的 URI 是 mongodb://user:pwd@hostname/myDB 那么就会报错。 修改成 mongodb://user:pwd@hostname/myDB?authSource=admin 就好了，</p><p><strong>authSource</strong>是用户所在的数据库 <strong>/myDB</strong> 是你要连接的数据库。 这里背后其实有个逻辑 如果你的用户配置的是 userAdminAnyDatabase 权限一般会创建在 admin 库 这样在连接其他的库的时候必须指定 上述两个参数才可以。</p>]]></content>
         <author>
             <name>xu gao</name>
             <uri>https://github.com/an0nymous</uri>
