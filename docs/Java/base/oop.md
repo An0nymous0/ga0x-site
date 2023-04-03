@@ -1,7 +1,6 @@
 ---
 title: 'Java 基础 - 面向对象'
 sidebar_label: '面向对象'
-sidebar_position: 1
 ---
 
 # 三大特性
