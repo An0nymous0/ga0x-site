@@ -286,3 +286,6 @@ sudo update-java-alternatives
 *Java EE (Java Platform, Enterprise Edition)* 更名为 *Jakarta EE* 。它是构建服务器应用程序和前端的规范。在范围上，Jakarta EE 可以与[Spring Boot](https://spring.io/projects/spring-boot)、[Micronaut](https://micronaut.io/)和[Quarkus](https://quarkus.io/)等更现代的框架进行比较，但 Jakarta EE 感觉更复杂。
 
 ⚠️ 建议：不要开始基于*Jakarta EE*的新项目。大多数人使用 *Spring Boot* ，这是一个不错的选择。如果您具有深厚的 Java EE 背景，请考虑使用 *Quarkus 。* 如果您喜欢 Groovy 和 Grails，请考虑 *Micronaut* 。
+
+### 英文版原文
+https://whichjdk.com/
