@@ -7,6 +7,7 @@ sidebar_label: 'AI Awesome'
 - https://chat.openai.com
 - https://bard.google.com
 - https://yiyan.baidu.com/
+- https://tongyi.aliyun.com/
 
 # Prompt
 
