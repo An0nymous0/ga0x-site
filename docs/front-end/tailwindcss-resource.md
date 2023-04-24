@@ -53,6 +53,9 @@ keywords: [Tailwind CSS, Tailwindcss, Tailwindcss 3.0, Awesome, Tailwind Awesome
 ![headless-ui.png](..%2Fassets%2Ffront-end%2Ftailwindcss-resource%2Fheadless-ui.png)
 官方维护的组件库，缺点是组件不多，可能因为跟官方tailwindui的付费产品有冲突吧
 
+- [shadcn/ui](https://ui.shadcn.com/)
+使用 Radix UI 和 Tailwind CSS 构建的设计精美的组件。
+
 ## 其他
 ---
 - [heroicons](https://heroicons.com/)
