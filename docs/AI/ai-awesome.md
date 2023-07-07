@@ -176,3 +176,8 @@ Source:
 
 ### ipollo AI
 [ipollo AI](https://ipollo.ai/)
+
+# 资料
+
+## [构筑大语言模型应用：应用开发与架构设计(中文)](https://aigc.phodal.com/)
+
