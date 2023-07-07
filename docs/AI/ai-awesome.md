@@ -159,3 +159,15 @@ Source:
 
 # 其他
 - [Awesome LangChain]https://github.com/kyrolabs/awesome-langchain - 一些大语言模型框架和工具
+
+# 在线工具
+
+## 总结 PDF
+
+### Midjourney
+
+[Midjourney](https://midjourney.com)
+
+### Leap 平替 Midjourney
+
+[Leap](https://tryleap.ai)
