@@ -160,9 +160,9 @@ Source:
 # 其他
 - [Awesome LangChain]https://github.com/kyrolabs/awesome-langchain - 一些大语言模型框架和工具
 
-# 在线工具
+# 在线AI工具
 
-## 总结 PDF
+## 图片
 
 ### Midjourney
 
@@ -171,3 +171,8 @@ Source:
 ### Leap 平替 Midjourney
 
 [Leap](https://tryleap.ai)
+
+## 文字
+
+### ipollo AI
+[ipollo AI](https://ipollo.ai/)
