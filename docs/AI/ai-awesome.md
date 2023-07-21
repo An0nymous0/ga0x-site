@@ -156,6 +156,7 @@ Source:
 - [MOSS](https://github.com/OpenLMLab/MOSS) - 类ChatGPT模型，复旦大学开源增强会话语言模型
 - [LaWGPT](https://github.com/pengxiao-song/LaWGPT) - 基于中文法律知识的大语言模型
 - [awesome-llm 中文](https://gitee.com/oschina/awesome-llm) - 开源大语言模型完整列表
+- [Llama2 中文](https://github.com/FlagAlpha/Llama2-Chinese) - Meta最新开源的Llama2模型 这个是中文版 原版在Huggingface
 
 # 其他
 - [Awesome LangChain]https://github.com/kyrolabs/awesome-langchain - 一些大语言模型框架和工具
