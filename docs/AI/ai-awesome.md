@@ -178,6 +178,11 @@ Source:
 ### ipollo AI
 [ipollo AI](https://ipollo.ai/)
 
+## 3D
+
+### Spline 3D
+[Spline 3D](https://spline.design) - 3D AI 设计 收费
+
 # 资料
 
 ## [构筑大语言模型应用：应用开发与架构设计(中文)](https://aigc.phodal.com/)
