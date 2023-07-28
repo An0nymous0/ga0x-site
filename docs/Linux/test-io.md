@@ -2,14 +2,8 @@
 title: '在 Linux 上测试硬盘IO读写速度'
 sidebar_label: '在 Linux 上测试硬盘IO读写速度'
 ---
+
 # 在 Linux 上测试硬盘IO读写速度
-
-状态 Status: 想法 Idea
-发布日期 Publication Date: 2023/07/28
-频道 Channel: Ga0x Blog
-媒体平台 Media Platform: www.ga0x.com
-
-在 Linux 下测试硬盘读写速度的命令和方法。
 
 1. 通过 dd 命令
 2. 通过安装FIO来测试
