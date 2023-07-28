@@ -164,10 +164,34 @@ Run status group 0 (all jobs):
 ```
 
 ```
-bw：带宽
-iops：每秒钟的IO数
-runt：总运行时间
-lat (msec)：延迟(毫秒)
+io=执行了多少M的IO
+
+bw=平均IO带宽
+iops=IOPS 每秒钟的IO数
+runt=线程运行时间
+slat=提交延迟
+clat=完成延迟
+lat=响应时间
+bw=带宽
+cpu=利用率
+IO depths=io队列
+IO submit=单个IO提交要提交的IO数
+IO complete=Like the above submit number, but for completions instead.
+IO issued=The number of read/write requests issued, and how many of them were short.
+IO latencies=IO完延迟的分布
+
+io=总共执行了多少size的IO
+aggrb=group总带宽
+minb=最小.平均带宽.
+maxb=最大平均带宽.
+mint=group中线程的最短运行时间.
+maxt=group中线程的最长运行时间.
+
+ios=所有group总共执行的IO数.
+merge=总共发生的IO合并数.
+ticks=Number of ticks we kept the disk busy.
+io_queue=花费在队列上的总共时间.
+util=磁盘利用率
 msec： 毫秒
 usec： 微秒
 ```
