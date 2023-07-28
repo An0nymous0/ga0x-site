@@ -52,7 +52,7 @@ fio是多线程IO负载生成测试工具，是测试服务器硬盘性能的优
 
 ## 1. 安装
 
-```bash
+```shell
 wget https://github.com/axboe/fio/archive/refs/tags/fio-3.35.tar.gz
 yum install libaio-devel
 tar -zxvf fio-3.35.tar.gz
@@ -67,13 +67,13 @@ make install
 
 向磁盘写一个2G文件，10线程，随机读1分钟，给出结果
 
-```bash
+```shell
 fio -filename=/tmp/test_randread -direct=1 -iodepth 1 -thread -rw=randread -ioengine=psync -bs=16k -size=2G -numjobs=10 -runtime=60 -group_reporting -name=mytest
 ```
 
 **参数说明**
 
-```bash
+```shell
 filename=/dev/sdb1              测试文件名称，通常选择需要测试的盘的data目录。
 direct=1                        测试过程绕过机器自带的buffer。使测试结果更真实。
 rw=randwrite                    测试随机写的I/O
@@ -90,7 +90,7 @@ group_reporting                 关于显示结果的，汇总每个进程的信
 
 其他参数
 
-```bash
+```shell
 lockmem=1g                       只使用1g内存进行测试。
 zero_buffers                     用0初始化系统buffer。
 nrfiles=8                        每个进程生成文件的数量。
@@ -100,31 +100,31 @@ rw=randread/randwrite/wandrw     随机读/随机写/随机混合读写
 
 ### 2.2 **顺序读**
 
-```bash
+```shell
 fio -filename=/dev/sdb1 -direct=1 -iodepth 1 -thread -rw=read -ioengine=psync -bs=16k -size=2G -numjobs=10 -runtime=60 -group_reporting -name=mytest
 ```
 
 ### 2.3 **顺序写**
 
-```bash
+```shell
 fio -filename=/dev/sdb1 -direct=1 -iodepth 1 -thread -rw=write -ioengine=psync -bs=16k -size=2G -numjobs=10 -runtime=60 -group_reporting -name=mytest
 ```
 
 ### 2.3 **随机写**
 
-```bash
+```shell
 fio -filename=/dev/sdb1 -direct=1 -iodepth 1 -thread -rw=randwrite -ioengine=psync -bs=16k -size=2G -numjobs=10 -runtime=60 -group_reporting -name=mytest
 ```
 
 ### 2.3 **随机混合读写**
 
-```bash
+```shell
 fio -filename=/dev/sdb1 -direct=1 -iodepth 1 -thread -rw=randrw -rwmixread=70 -ioengine=psync -bs=16k -size=2G -numjobs=10 -runtime=60 -group_reporting -name=mytest -ioscheduler=noop
 ```
 
 ## 3.结果展示
 
-```bash
+```shell
 mytest: (g=0): rw=randread, bs=(R) 16.0KiB-16.0KiB, (W) 16.0KiB-16.0KiB, (T) 16.0KiB-16.0KiB, ioengine=psync, iodepth=1
 ...
 fio-3.35
@@ -157,7 +157,7 @@ Run status group 0 (all jobs):
    READ: bw=111MiB/s (116MB/s), 111MiB/s-111MiB/s (116MB/s-116MB/s), io=6665MiB (6989MB), run=60002-60002msec
 ```
 
-```
+```shell
 io=执行了多少M的IO
 
 bw=平均IO带宽
