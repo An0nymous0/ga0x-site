@@ -2,11 +2,25 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://www.ga0x.com/blog</id>
     <title>Maxgao Blog</title>
-    <updated>2023-03-16T00:00:00.000Z</updated>
+    <updated>2023-08-03T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://www.ga0x.com/blog"/>
     <subtitle>Maxgao Blog</subtitle>
     <icon>https://www.ga0x.com/img/favicon.ico</icon>
+    <entry>
+        <title type="html"><![CDATA[Claude 2.0 注册指南 - 免费使用 ChatGPT(GPT-4) 替代工具! AI 领域新晋选手值得一试]]></title>
+        <id>https://www.ga0x.com/blog/2023/08/03/claude-2</id>
+        <link href="https://www.ga0x.com/blog/2023/08/03/claude-2"/>
+        <updated>2023-08-03T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[最近谷歌却被爆出大规模投资了另一家新兴AI创业公司Anthropic,其重点产品是Claude这个AI系统。Claude是一个强大的大型语言模型,在处理中文和上下文对话方面表现不俗,还拥有写作、编程、解释概念和翻译等多方面的应用潜力。与ChatGPT类似,Claude也值得关注,是AI领域一个有潜力的新尝试。]]></summary>
+        <content type="html"><![CDATA[<div class="theme-admonition theme-admonition-tip alert alert--success admonition_QuwS"><div class="admonitionHeading_vKOO"><span class="admonitionIcon_GjbP"><svg viewBox="0 0 12 16"><path fill-rule="evenodd" d="M6.5 0C3.48 0 1 2.19 1 5c0 .92.55 2.25 1 3 1.34 2.25 1.78 2.78 2 4v1h5v-1c.22-1.22.66-1.75 2-4 .45-.75 1-2.08 1-3 0-2.81-2.48-5-5.5-5zm3.64 7.48c-.25.44-.47.8-.67 1.11-.86 1.41-1.25 2.06-1.45 3.23-.02.05-.02.11-.02.17H5c0-.06 0-.13-.02-.17-.2-1.17-.59-1.83-1.45-3.23-.2-.31-.42-.67-.67-1.11C2.44 6.78 2 5.65 2 5c0-2.2 2.02-4 4.5-4 1.22 0 2.36.42 3.22 1.19C10.55 2.94 11 3.94 11 5c0 .66-.44 1.78-.86 2.48zM4 14h5c-.23 1.14-1.3 2-2.5 2s-2.27-.86-2.5-2z"></path></svg></span>转发</div><div class="admonitionContent_GBrZ"><p>最近谷歌却被爆出大规模投资了另一家新兴AI创业公司Anthropic,其重点产品是Claude这个AI系统。Claude是一个强大的大型语言模型,在处理中文和上下文对话方面表现不俗,还拥有写作、编程、解释概念和翻译等多方面的应用潜力。与ChatGPT类似,Claude也值得关注,是AI领域一个有潜力的新尝试。</p></div></div><h2 class="anchor anchorWithStickyNavbar_aK9W" id="claude-20-大更新">Claude 2.0 大更新<a href="#claude-20-大更新" class="hash-link" aria-label="Claude 2.0 大更新的直接链接" title="Claude 2.0 大更新的直接链接">​</a></h2><p>Claude 2.0 目前依然在免费试用阶段,已经从 Slack 平台独立出来,直接在官网使用。据部分使用者反馈, Claude 1.x 的水平已与 GPT 3.5 相近, Claude 2.0 在语言理解能力上有所进步,是一款值得关注的新兴 AI 系统。使用 Claude 2.0 无需支付费用,目前还有一定的使用限制,但对开发者也开放了 API 。普通用户可以上传文档等给 Claude 2.0 阅读分析,每次最多5个文件。 Claude 2.0 在语言理解方面的表现确实不错,有望成为一款实用的AI助手。</p><h2 class="anchor anchorWithStickyNavbar_aK9W" id="claude-20-注册教程">Claude 2.0 注册教程<a href="#claude-20-注册教程" class="hash-link" aria-label="Claude 2.0 注册教程的直接链接" title="Claude 2.0 注册教程的直接链接">​</a></h2><ol><li>必须准备好代理，美国最好</li><li>前往「<a href="https://Claude.ai/" target="_blank" rel="noopener noreferrer">Claude.ai 官网</a>」</li><li>可用任意邮箱注册，需手工填写邮件验证码；或使用 Google 账号直接登录 (推荐后者更方便)</li><li>按照流程一步一步确认信息后即可使用</li><li>在聊天框内输入内容即可与 AI 聊天了，与 ChatGPT 网页版的使用基本一样</li></ol><p><img loading="lazy" alt="Untitled" src="/assets/images/WX20230803-191033@2x-087bdc2029d57281eef9b8df93a3a7d8.png" width="1556" height="1822" class="img_MkV_"></p>]]></content>
+        <author>
+            <name>xu gao</name>
+            <uri>https://github.com/an0nymous</uri>
+        </author>
+        <category label="ChatGPT" term="ChatGPT"/>
+        <category label="Claude" term="Claude"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[解决 MongoDB 驱动提示 not authorized 的问题]]></title>
         <id>https://www.ga0x.com/blog/2023/03/16/mongo-authentication-failed</id>
