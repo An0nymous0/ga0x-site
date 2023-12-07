@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkga0x_site=self.webpackChunkga0x_site||[]).push([[1841],{8851:e=>{e.exports=JSON.parse('{"permalink":"/blog/tags/disk","page":1,"postsPerPage":10,"totalPages":1,"totalCount":1,"blogDescription":"Blog","blogTitle":"Blog"}')}}]);

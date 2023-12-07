@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkga0x_site=self.webpackChunkga0x_site||[]).push([[290],{6922:s=>{s.exports=JSON.parse('{"label":"ncdu","permalink":"/blog/tags/ncdu","allTagsPath":"/blog/tags","count":1,"unlisted":false}')}}]);

@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkga0x_site=self.webpackChunkga0x_site||[]).push([[5650],{3198:e=>{e.exports=JSON.parse('{"label":"lettuce","permalink":"/blog/tags/lettuce","allTagsPath":"/blog/tags","count":1,"unlisted":false}')}}]);

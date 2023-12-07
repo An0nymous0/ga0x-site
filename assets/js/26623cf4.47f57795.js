@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkga0x_site=self.webpackChunkga0x_site||[]).push([[5394],{6107:a=>{a.exports=JSON.parse('{"label":"GraalVM","permalink":"/blog/tags/graal-vm","allTagsPath":"/blog/tags","count":1,"unlisted":false}')}}]);

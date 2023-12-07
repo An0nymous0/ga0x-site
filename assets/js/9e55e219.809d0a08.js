@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkga0x_site=self.webpackChunkga0x_site||[]).push([[9593],{9775:s=>{s.exports=JSON.parse('{"label":"Clash","permalink":"/blog/tags/clash","allTagsPath":"/blog/tags","count":1,"unlisted":false}')}}]);

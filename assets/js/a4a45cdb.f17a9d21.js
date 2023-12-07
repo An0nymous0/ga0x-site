@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkga0x_site=self.webpackChunkga0x_site||[]).push([[7975],{3820:a=>{a.exports=JSON.parse('{"label":"JAVA","permalink":"/blog/tags/java","allTagsPath":"/blog/tags","count":5,"unlisted":false}')}}]);

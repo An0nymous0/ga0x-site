@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkga0x_site=self.webpackChunkga0x_site||[]).push([[2136],{6355:s=>{s.exports=JSON.parse('{"label":"Disk","permalink":"/blog/tags/disk","allTagsPath":"/blog/tags","count":1,"unlisted":false}')}}]);

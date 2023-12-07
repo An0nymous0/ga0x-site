@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkga0x_site=self.webpackChunkga0x_site||[]).push([[8132],{314:e=>{e.exports=JSON.parse('{"label":"Develop","permalink":"/blog/tags/develop","allTagsPath":"/blog/tags","count":1,"unlisted":false}')}}]);

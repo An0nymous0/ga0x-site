@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkga0x_site=self.webpackChunkga0x_site||[]).push([[2932],{3394:e=>{e.exports=JSON.parse('{"label":"IDE","permalink":"/blog/tags/ide","allTagsPath":"/blog/tags","count":1,"unlisted":false}')}}]);

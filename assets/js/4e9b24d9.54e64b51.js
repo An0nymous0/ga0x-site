@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkga0x_site=self.webpackChunkga0x_site||[]).push([[648],{5373:e=>{e.exports=JSON.parse('{"label":"utterances","permalink":"/blog/tags/utterances","allTagsPath":"/blog/tags","count":1,"unlisted":false}')}}]);
