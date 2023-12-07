@@ -4,7 +4,7 @@ import {DocProvider} from '@docusaurus/theme-common/internal';
 import DocItemMetadata from '@theme/DocItem/Metadata';
 import DocItemLayout from '@theme/DocItem/Layout';
 export default function DocItem(props) {
-  const docHtmlClassName = `docs-doc-id-${props.content.metadata.unversionedId}`;
+  const docHtmlClassName = `docs-doc-id-${props.content.metadata.id}`;
   const MDXComponent = props.content;
 
   const commentElement = useRef(null);
