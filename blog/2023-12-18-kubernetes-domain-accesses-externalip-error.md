@@ -6,7 +6,7 @@ tags: [Kubernetes]
 
 > 问题出现在 Kubernetes 1.26 版本以后的集群，因为 1.26 版本修改了externalTrafficPolicy：Local 的处理逻辑
 
-# 重现过程
+## 重现过程
 
 假设我们在Kubernetes集群中部署了一个应用服务,对外暴露的是myapp.com域名。
 
@@ -28,31 +28,31 @@ Local模式要求服务的后端Pod必须与请求Pod在同一个节点上,流�
 
 这就是因为一开始做了那个“Local”的限制,违反了服务可发现与负载均衡的初衷。
 
-# 原因
+## 原因
 
 1. 对应的 svc externalTrafficPolicy 为 Local 模式
 2. Local 模式要求客户端和后端Pod在同一节点
 3. 不存在本地端点 - 将丢弃流量,不会转发
 
-# 为什么 1.26 版本以前的集群可以
+## 为什么 1.26 版本以前的集群可以
 
-## 1.26版本之前:
+### 1.26版本之前:
 
 - 存在本地端点 - 转发流量到后端Pod
 - 不存在本地端点 - 仍会尝试转发流量到其他节点
 
-## 1.26版本之后:
+### 1.26版本之后:
 
 - 存在本地端点 - 转发流量到后端Pod
 - 不存在本地端点 - 将丢弃流量,不会转发
 
-## 总结区别:
+### 总结区别:
 
 1.26之前:即使没有本地端点,也会转发流量到其他节点
 
 1.26之后:严格限制必须有本地端点,否则一律丢弃流量
 
-# 现象
+## 现象
 
 - pod 内访问域名或 EXTERNAL-IP `无响应` 或者 `Failed to connect`
 - 带有 Istio Envoy Sidecar 代理的 pod 访问 会返回 `TCP connection reset by peer`
@@ -62,12 +62,12 @@ Local模式要求服务的后端Pod必须与请求Pod在同一个节点上,流�
 - 对应的 EXTERNAL-IP 节点内的 pod 访问没问题
 - 容器外部访问没问题
 
-# 解决方案
+## 解决方案
 
-## 修改访问方式
+### 修改访问方式
 
 将对应的访问地址改成 svc name 这也是 k8s 推荐的集群内服务之间的访问方式
 
-## 腾讯云
+### 腾讯云
 
 将 LoadBalancer 对应的 ip 设置为 直连 Pod 模式 Service,对应[文档](https://cloud.tencent.com/document/product/457/41897)
