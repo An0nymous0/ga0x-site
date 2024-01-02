@@ -4,5 +4,5 @@ sidebar_label: 'JAVA 8'
 ---
 
 :::tip
-JAVA 8 `是LTS` (Long-Term-Support) 版本
+JAVA 8 `LTS` (Long-Term-Support) 版本
 :::

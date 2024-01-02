@@ -4,7 +4,7 @@ sidebar_label: 'JAVA 9'
 ---
 
 :::info
-JAVA 9 `非LTS` (Long-Term-Support) 版本
+JAVA 9 `非LTS（Feature）` (Long-Term-Support) 版本
 :::
 
 ## 创建不可变集合
