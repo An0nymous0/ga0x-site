@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkga0x_site=self.webpackChunkga0x_site||[]).push([[8095],{2276:e=>{e.exports=JSON.parse('{"label":"Prometheus Operator","permalink":"/blog/tags/prometheus-operator","allTagsPath":"/blog/tags","count":1,"unlisted":false}')}}]);
