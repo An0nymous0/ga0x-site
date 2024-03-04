@@ -4,7 +4,7 @@ sidebar_label: 'AI Awesome'
 ---
 # AI Awesome
 
-# AI对话
+# AI 对话
 
 - **[Claude](https://claude.ai/chats) - 由Anthropic公司开发的人工智能聊天机器人（目前我使用率最高的）**
 - **[ChatGPT](https://chat.openai.com) - 不多介绍啦 多介绍浪费感情**
@@ -13,9 +13,13 @@ sidebar_label: 'AI Awesome'
 - **[文心一言](https://yiyan.baidu.com/) - 百度推出的基于文心大模型的AI对话互动工具**
 - **[通义千问](https://tongyi.aliyun.com/) - 阿里巴巴推出的类ChatGPT响应人类指令的大模型，已免费开放**
 
-# AI 图像
+# AI 文生图
 
 - [Midjourney](https://www.midjourney.com/) - 是一款基于人工智能技术的绘画软件，利用深度学习算法帮助用户创作个性化风格的绘画作品。
+
+# AI 文生视频&图生视频
+- [Sora](https://openai.com/sora) - OpenAI 最新发布的视频 AI 模型，不过目前还在白名单阶段 没有开放使用。
+- [Stable Video](https://www.stablevideo.com/) - Stability.ai 发布的 AI 视频模型 可以免费使用 每天有 150 的积分，大概可以生成 15 个视频左右。
 
 # Prompt 站点
 
