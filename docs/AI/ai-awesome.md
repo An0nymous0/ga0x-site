@@ -21,6 +21,9 @@ sidebar_label: 'AI Awesome'
 - [Sora](https://openai.com/sora) - OpenAI 最新发布的视频 AI 模型，不过目前还在白名单阶段 没有开放使用。
 - [Stable Video](https://www.stablevideo.com/) - Stability.ai 发布的 AI 视频模型 可以免费使用 每天有 150 的积分，大概可以生成 15 个视频左右。
 
+# 代码生成
+- [screenshot-to-code](https://github.com/abi/screenshot-to-code) - 根据截图或者 URL 生成 Tailwind/React/Vue 代码
+
 # Prompt 站点
 
 - [PromptHero](https://prompthero.com/) - 综合性prompt分享平台，目前**图像类**的提示词更多
