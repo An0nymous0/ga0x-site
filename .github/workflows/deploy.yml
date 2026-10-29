@@ -4,8 +4,33 @@ on:
   push:
     branches:
       - main
-    # Review gh actions docs if you want to further define triggers, paths, etc
-    # https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#on
+    # 只跳过纯工程文件：这些文件不参与站点构建，改动它们不需要重新发布。
+    # 注意 GitHub 的 glob 语义：'*' 不跨斜杠，跨目录必须用 '**'。
+    # 判断依据是「是否产出 build/ 变化」：
+    #   CLAUDE.md / GLOSSARY.md / README.md  —— agent 与开发者文档，不进站点
+    #   openspec/                            —— 规格驱动开发的制品
+    #   scripts/                             —— 本地工具（ghpages_sim.py 等）
+    #   .claude/                             —— Claude Code 的 skills 与 commands
+    #   .worktreeinclude                     —— Orca worktree 继承清单
+    #   .gitignore / .gitattributes / .editorconfig —— 版本控制与编辑约定
+    #   .idea/ .vscode/                      —— IDE 配置
+    # 一旦某次 push 同时改了上面这些和 blog/docs/src/static 等，workflow 照常触发
+    # （paths-ignore 只在「全部改动文件都命中」时才跳过）。
+    paths-ignore:
+      - 'CLAUDE.md'
+      - 'GLOSSARY.md'
+      - 'README.md'
+      - 'openspec/**'
+      - 'scripts/**'
+      - '.claude/**'
+      - '.worktreeinclude'
+      - '.gitignore'
+      - '.gitattributes'
+      - '.editorconfig'
+      - '.idea/**'
+      - '.vscode/**'
+  # 允许手动重新发布（内容没变也能强制跑一次，用于排障或重置 gh-pages）
+  workflow_dispatch:
 
 jobs:
   deploy:

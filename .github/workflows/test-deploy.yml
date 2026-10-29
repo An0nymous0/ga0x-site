@@ -4,8 +4,22 @@ on:
   pull_request:
     branches:
       - main
-    # Review gh actions docs if you want to further define triggers, paths, etc
-    # https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#on
+    # 与 deploy.yml 同一套过滤：纯工程文件不改变站点产物，不必跑构建检查。
+    # 注意 GitHub 的 glob 语义：'*' 不跨斜杠，跨目录必须用 '**'。
+    # 只要 PR 里有一个文件不在下面清单内（如 blog/ docs/ src/ static/ config），检查照常跑。
+    paths-ignore:
+      - 'CLAUDE.md'
+      - 'GLOSSARY.md'
+      - 'README.md'
+      - 'openspec/**'
+      - 'scripts/**'
+      - '.claude/**'
+      - '.worktreeinclude'
+      - '.gitignore'
+      - '.gitattributes'
+      - '.editorconfig'
+      - '.idea/**'
+      - '.vscode/**'
 
 jobs:
   test-deploy:
