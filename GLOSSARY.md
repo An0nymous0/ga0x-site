@@ -58,6 +58,29 @@ agent 开工前先查本表。**表内已拍板的决策不要再反问用户。
 | 线上改动验证方式 | 加随机 query 参数穿透 Cloudflare 缓存再 grep | CF 前置会缓存 |
 | CNAME 能改吗 | 不能删，内容是 `www.ga0x.com`，删了自定义域名失效 | 仓内现状 |
 | CI 挂了先看什么 | `test-deploy.yml` 历史上从未成功过（`cache: yarn` + 仓里只有 pnpm-lock）。先确认它是修好的还是又退化了 | 2026-10-29 |
+| 验证路由行为用什么 | **`python3 scripts/ghpages_sim.py`**。`pnpm serve` 和 `python -m http.server` 都不行 | 2026-10-30 实测，见下两行 |
+| 为什么 `python -m http.server` 不能验证路由 | 它自己会 301 到目录、目录无 index 时列文件列表。实测 `/blog/` 在它上面返回 200，**线上却是 404**——结论完全相反 | 2026-10-30 |
+| 为什么 `pnpm serve` 也不能验证路由 | 它是 Docusaurus 的 dev server，自己做了一套 `trailingSlash` 处理。实测 `/blog/` 返回 301、`/docs` 返回 404，与线上全部不符 | 2026-10-30 |
+| 带尾斜杠的 URL 是规范 URL 吗 | **不是**。规范形式一律不带斜杠（`sitemap.xml` 里 90 条全部如此）。带斜杠只是用户/爬虫的猜测 | 仓内 sitemap 事实 |
+| `/blog/` 为什么 404 而 `/blog` 是 200 | GH Pages 判定：`build/blog.html` 存在 → 直接 200。而 `/blog/` 命中 `build/blog/` 目录（存年份归档），该目录**没有 index.html** → 返回 404.html | 2026-10-30 产物核对 |
+| `/docs` 为什么是 301 而不是 200 | `build/docs.html` **不存在**（docs 没有列表页产物）。GH Pages 只能 301 到 `/docs/`，而 `/docs/` 同样无 index.html → 404 | 2026-10-30 |
+| 能不能靠改 `trailingSlash` 修 | 不能。会变更全部已收录 URL，是明确红线（见 CLAUDE.md） | CLAUDE.md 约定 |
+| 客户端跳转修尾斜杠要注意什么 | **必须带循环保护**。不是所有目录都有对应 `X.html`：`/blog` 有 → 跳转成立；`/docs` 没有 → 跳到 `/docs` 会 301 回 `/docs/`，无限循环。用 `sessionStorage` 记一次性标记 | 2026-10-30 事故，见下 |
+
+### 尾斜杠跳转事故记录（2026-10-30）
+
+第一版修复直接上了线，`/docs/` 出现无限重定向（CDP 实测循环 14+ 次）：
+
+```
+/docs → GH Pages 301 → /docs/ → 脚本跳回 → /docs → 301 → ... 死循环
+```
+
+**教训有两条，都写成了上面的决策行：**
+
+1. **本地验证手段选错会得出反向结论。** 我先用了 `pnpm serve`（返回 `/blog/` 301），又用了 `python -m http.server`（返回 `/blog/` 200），两个都和线上 404 不符。如果只用其中一个，就会误判"已修好"。为此写了 `scripts/ghpages_sim.py`。
+2. **跳转类改动必须用真实浏览器验证，不能只看 HTTP 码。** curl 只能看到第一跳的 404（因为 `404.html` 本身是 200 内容 404 状态），看不到 JS 执行后的落点。用 CDP 追踪 `Page.frameNavigated` 序列才暴露出循环。
+
+最终实现：`docusaurus.config.js` 的 `headTags` 内联阻塞脚本 + `src/theme/NotFound/index.js` 的 `useEffect` 双保险。
 
 ## 工程流程
 

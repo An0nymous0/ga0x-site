@@ -17,6 +17,9 @@ pnpm build
 # 本地预览构建产物
 pnpm serve
 
+# 验证路由行为（GitHub Pages 行为模拟器，:8099）—— 路由类改动必跑
+python3 scripts/ghpages_sim.py
+
 # MDX 兼容性预检（升级依赖或批量改内容后必跑）
 npx docusaurus-mdx-checker
 
@@ -38,6 +41,7 @@ blog/                   博客文章，文件名前缀日期：YYYY-MM-DD-slug.m
 src/pages/index.js      首页（手写 React 页面，非 docs）
 src/css/custom.css      主题变量覆盖
 static/                 原样拷贝到站点根的文件（CNAME、robots.txt、img/）
+scripts/                本仓专用工具（ghpages_sim.py：GH Pages 路由行为模拟）
 .github/workflows/      deploy.yml（推送 main 触发发布）、test-deploy.yml（PR 触发构建检查）
 openspec/               规格驱动开发目录（specs/ 为已归档能力基线，changes/ 为进行中变更）
 .claude/                OpenSpec 派生给 Claude Code 的 skills 与 commands
@@ -62,8 +66,20 @@ openspec/               规格驱动开发目录（specs/ 为已归档能力基�
 3. **构建产物断言** —— 涉及页脚/导航/内容的改动，必须 `grep build/` 下对应产物确认实际渲染结果，不能只看配置文件写了什么。注意 `trailingSlash: false` 下产物是 `build/docs/x/y.html` 而非 `build/docs/x/y/index.html`。
 4. **`git status` 干净** —— `node_modules`、`build`、`.docusaurus` 均已在 `.gitignore` 内，不应该出现在待提交列表里。
 5. **不动锁文件** —— 除非本次变更明确就是升级依赖，否则 `pnpm-lock.yaml` 必须保持 `git diff` 为空。
+6. **路由类改动必须过模拟器** —— 动过 `docusaurus.config.js`（`trailingSlash`/`headTags`）、`src/theme/NotFound/`、或增删了顶层目录时，必须用 `python3 scripts/ghpages_sim.py` 验证，**不能用 `pnpm serve` 或 `python -m http.server` 代替**（两者行为都与线上不符，会给出反向结论，见 GLOSSARY「验证路由行为用什么」）。
 
 **本地构建绿灯不等于部署成功。** 走 PR 时 CI 的两个 workflow 都必须真跑通；历史上 `test-deploy.yml` 因为配了 `cache: yarn` 而长期红叉，不能假设它可用。
+
+### 路由改动额外要求
+
+涉及客户端跳转（`headTags` 脚本、`NotFound` 组件）的改动，除模拟器外还必须用真实浏览器验证落点：
+
+```bash
+# curl 只能看到第一跳，看不到 JS 执行后的落点
+# 需要 CDP 追踪 Page.frameNavigated 序列，确认没有循环
+```
+
+判据不是「HTTP 码对了」，而是「跳转序列有限且终点正确」。2026-10-30 的事故就是只看 HTTP 码放过了无限循环（见 GLOSSARY「尾斜杠跳转事故记录」）。
 
 ## 部署
 
@@ -80,3 +96,5 @@ openspec/               规格驱动开发目录（specs/ 为已归档能力基�
 - 不要在 `docusaurus.config.js` 里提交任何真实密钥（Algolia search-only key 是公开可提交的例外，其余一律走环境变量）。
 - 不要删除 `new` / `new-ui` 两个长期分支，未经确认也不要在上面改动。
 - 不要引入 `docusaurus-notion-mdx-plugin`（Notion 内容源）—— 历史遗留试验，因硬编码 token 与本地绝对路径依赖被回退，不是可用状态。
+- **不要用 `pnpm serve` 或 `python -m http.server` 验证路由**。前者自带一套 `trailingSlash` 处理，后者会自己 301 到目录并在无 index 时列文件。两者都与 GitHub Pages 的实际行为不符，会得出反向结论。用 `scripts/ghpages_sim.py`。
+- **不要在客户端跳转里省掉循环保护**。本仓 `/blog` 有 `build/blog.html`（跳转成立），但 `/docs` 没有 `build/docs.html`（GH Pages 会 301 到 `/docs/`，跳回去即成环）。任何跳转逻辑都必须能证明「跳转序列有限」。
