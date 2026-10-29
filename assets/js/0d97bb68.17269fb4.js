@@ -1,0 +1,1 @@
+"use strict";(globalThis.webpackChunkga0x_site||=[]).push([[7409],{3862(l){l.exports=JSON.parse('{"tag":{"label":"Develop","permalink":"/blog/tags/develop","allTagsPath":"/blog/tags","count":1,"unlisted":false},"listMetadata":{"permalink":"/blog/tags/develop","page":1,"postsPerPage":10,"totalPages":1,"totalCount":1,"blogDescription":"Blog","blogTitle":"Blog"}}')}}]);

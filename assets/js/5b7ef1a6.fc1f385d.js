@@ -1,0 +1,1 @@
+"use strict";(globalThis.webpackChunkga0x_site||=[]).push([[9556],{6466(a){a.exports=JSON.parse('{"tag":{"label":"GraalVM","permalink":"/blog/tags/graal-vm","allTagsPath":"/blog/tags","count":1,"unlisted":false},"listMetadata":{"permalink":"/blog/tags/graal-vm","page":1,"postsPerPage":10,"totalPages":1,"totalCount":1,"blogDescription":"Blog","blogTitle":"Blog"}}')}}]);

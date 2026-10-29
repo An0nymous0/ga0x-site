@@ -1,0 +1,1 @@
+"use strict";(globalThis.webpackChunkga0x_site||=[]).push([[777],{2902(t){t.exports=JSON.parse('{"tag":{"label":"lettuce","permalink":"/blog/tags/lettuce","allTagsPath":"/blog/tags","count":1,"unlisted":false},"listMetadata":{"permalink":"/blog/tags/lettuce","page":1,"postsPerPage":10,"totalPages":1,"totalCount":1,"blogDescription":"Blog","blogTitle":"Blog"}}')}}]);

@@ -1,0 +1,1 @@
+"use strict";(globalThis.webpackChunkga0x_site||=[]).push([[8186],{3927(a){a.exports=JSON.parse('{"tag":{"label":"JetBrains","permalink":"/blog/tags/jet-brains","allTagsPath":"/blog/tags","count":1,"unlisted":false},"listMetadata":{"permalink":"/blog/tags/jet-brains","page":1,"postsPerPage":10,"totalPages":1,"totalCount":1,"blogDescription":"Blog","blogTitle":"Blog"}}')}}]);

@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkga0x_site=self.webpackChunkga0x_site||[]).push([[1884],{7846:a=>{a.exports=JSON.parse('{"label":"Shadowrocket","permalink":"/blog/tags/shadowrocket","allTagsPath":"/blog/tags","count":1,"unlisted":false}')}}]);

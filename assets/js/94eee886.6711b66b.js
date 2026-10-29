@@ -1,0 +1,1 @@
+"use strict";(globalThis.webpackChunkga0x_site||=[]).push([[8759],{3588(s){s.exports=JSON.parse('{"tag":{"label":"Disqus","permalink":"/blog/tags/disqus","allTagsPath":"/blog/tags","count":1,"unlisted":false},"listMetadata":{"permalink":"/blog/tags/disqus","page":1,"postsPerPage":10,"totalPages":1,"totalCount":1,"blogDescription":"Blog","blogTitle":"Blog"}}')}}]);
