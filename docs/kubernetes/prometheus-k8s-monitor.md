@@ -45,7 +45,7 @@ kubectl port-forward -n monitoring service/prometheus-kube-prometheus-prometheus
 kubectl port-forward -n monitoring service/prometheus-grafana 8080:80
 ```
 
-我们访问 Prometheus UI 和 Grafana UI。分别访问http://localhost:9090、http://locahost:8080。grafana 的凭据是username: admin& password: prom-operator。我们也可以从 k8s secrets 中获取密码或者安装时指定 helm的values变量来自定义密码。
+我们访问 Prometheus UI 和 Grafana UI。分别访问[http://localhost:9090](http://localhost:9090)、[http://localhost:8080](http://localhost:8080)。grafana 的凭据是username: admin& password: prom-operator。我们也可以从 k8s secrets 中获取密码或者安装时指定 helm的values变量来自定义密码。
 
 ## 添加符合 prometheus 格式输出的指标（以 Java Spring Boot2 应用示例）
 
