@@ -51,10 +51,11 @@ pnpm 10 生成的 v9 锁文件，pnpm 8 无法读取。若升级后发现 Docusa
 React 19 移除了 `ReactDOM.render`、`findDOMNode`、string refs 等。Docusaurus 3.10 自身已适配，但 `src/pages/index.js` 是用户手写页面，需要确认无废弃 API。
 **处置**：构建成功是必要非充分条件——必须额外检查 `src/` 下是否有上述 API 的直接调用，并用 `docusaurus serve` 起本地服务实访首页确认渲染无异常。
 
-### R3 Algolia key 换了但索引仍是旧的
+### R3 Algolia key 与索引状态（已实测排除）
 
-仓库只能控制前端 key，索引侧爬虫配置在 Algolia 后台。若索引未重建，换 key 后搜索可能仍返回空。
-**处置**：验收必须**实打一次查询**（用新 key 向 Algolia API 发一个确定存在的词，如 `kubernetes`），不能只看 key 格式对不对。若索引为空，如实报告为外部未就绪项，不改前端凑数。
+2026-10-29 用用户提供的完整 key `30fbc18f2e759a30181abc05eebe23b7` 直连 Algolia API 实测：`HTTP 200`，`kubernetes` 命中 36 条，返回的 URL 指向 `www.ga0x.com` 的真实页面。**索引侧是健康的，本次故障纯为前端 key 被截断。**
+
+**处置**：换 key 即可，无需重建索引。验收仍须实打一次查询确认，防止后续索引侧漂移。
 
 ### R4 `.npmrc` 的 `hoist`/`public-hoist-pattern` 在 pnpm 10 下的语义
 

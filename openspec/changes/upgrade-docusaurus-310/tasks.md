@@ -16,7 +16,7 @@
 ## 3. 站点配置
 
 - [ ] 3.1 把顶层 `onBrokenMarkdownLinks: 'warn'` 迁到 `markdown: { hooks: { onBrokenMarkdownLinks: 'warn' } }`，同时保留 `onBrokenLinks: 'throw'` 在原位置不动。验证：`node -e "import('./docusaurus.config.js').then(m=>{const c=m.default;console.log('top:',c.onBrokenMarkdownLinks,'hook:',c.markdown?.hooks?.onBrokenMarkdownLinks)})"` 输出 `top: undefined hook: warn`。
-- [ ] 3.2 把 `themeConfig.algolia.apiKey` 替换为用户提供的完整 key（长度应显著大于当前 9 个字符），`appId` 与 `indexName` 保持不变。验证：`node -e "import('./docusaurus.config.js').then(m=>console.log(m.default.themeConfig.algolia.apiKey.length))"` 输出大于 20 的整数，且 `grep -c "5233a" docusaurus.config.js` 输出 `0`。
+- [ ] 3.2 把 `themeConfig.algolia.apiKey` 替换为 `30fbc18f2e759a30181abc05eebe23b7`（已在 2026-10-29 实测有效，返回 HTTP 200 且 `kubernetes` 命中 36 条），`appId` 与 `indexName` 保持不变。验证：`grep -c "30fbc18f2e759a30181abc05eebe23b7" docusaurus.config.js` 输出 `1`，且 `grep -c "5233a" docusaurus.config.js` 输出 `0`。
 - [ ] 3.3 改写 `themeConfig.footer.copyright`：格式为 `Copyright © ${new Date().getFullYear()} Maxgao. <a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener noreferrer">京ICP备19047090号</a>`，去掉 `My Project, Inc.` 与 `Built with Docusaurus`。验证：`grep -c "My Project\|Built with Docusaurus" docusaurus.config.js` 输出 `0`，且 `grep -c "Maxgao" docusaurus.config.js` 大于等于 2。
 
 ## 4. CI
