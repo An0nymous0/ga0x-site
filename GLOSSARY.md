@@ -130,3 +130,9 @@ agent 开工前先查本表。**表内已拍板的决策不要再反问用户。
 | 提案要写到什么程度 | 4 个制品齐 + `openspec validate --strict` 通过才能进实现 | OpenSpec 契约 |
 | CC 汇报的可信度 | 不可信。所有断言以 Hermes 侧独立 `git diff` + 亲跑命令为准 | 用户方法论 |
 | worktree 里为什么看不到父目录的 CLAUDE.md | worktree 只继承 git 管理文件。所以 CLAUDE.md / GLOSSARY.md 必须提交进仓 | 2026-10-29 |
+
+## 变更记录
+
+| 日期 | 变更 | 说明 |
+|---|---|---|
+| 2026-10-30 | CI 加 `paths-ignore` | 工程文件改动不再触发构建与部署，见 `.github/workflows/deploy.yml` 注释 |
