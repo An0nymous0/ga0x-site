@@ -1,0 +1,21 @@
+# Orca worktree 本地文件继承清单
+#
+# 机制：Orca 自实现（非 git 原生）。建 worktree 时按此清单把本地文件拷贝过去。
+# 官方 issue: stablyai/orca#7549（已实现）
+#
+# 三条硬规则（违反任一即静默失效，不报错）：
+#   1. 只拷「已被 gitignore」的文件。用 `git check-ignore -v <path>` 逐个验。
+#   2. 只认字面路径，不认 glob（`*`、`**`、`?`、`!` 全被跳过，见 orca#24675 仍 OPEN）。
+#   3. 不管已跟踪文件的未提交改动——那种改动永远不会被带过去。
+#
+# 校验：cat .worktreeinclude | xargs git check-ignore -v
+
+# Claude Code 本地覆盖层（被 ~/.config/git/ignore 全局忽略）
+.claude/settings.local.json
+CLAUDE.local.md
+
+# 本地 MCP 配置（可能含 token，已在 .gitignore 中排除）
+.mcp.json
+
+# 本地环境变量
+.env.local
