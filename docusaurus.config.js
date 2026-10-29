@@ -25,7 +25,12 @@ const config = {
   trailingSlash: false,
 
   onBrokenLinks: 'throw',
-  onBrokenMarkdownLinks: 'warn',
+
+  markdown: {
+    hooks: {
+      onBrokenMarkdownLinks: 'warn',
+    },
+  },
 
   // Even if you don't use internationalization, you can use this field to set
   // useful metadata like html lang. For example, if your site is Chinese, you
@@ -131,7 +136,7 @@ const config = {
             ],
           },
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus. <a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener noreferrer">京ICP备19047090号</a>`,
+        copyright: `Copyright © ${new Date().getFullYear()} Maxgao. <a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener noreferrer">京ICP备19047090号</a>`,
       },
       prism: {
         theme: prismThemes.github,
@@ -143,7 +148,7 @@ const config = {
         appId: 'LOUOXZQ42U',
 
         //  公开 API 密钥：提交它没有危险
-        apiKey: '5233ab296e2b2ddb132314953b80741f',
+        apiKey: '30fbc18f2e759a30181abc05eebe23b7',
 
         indexName: 'ga0x',
 
