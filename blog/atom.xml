@@ -101,8 +101,10 @@
         <id>https://www.ga0x.com/blog/2023/08/03/claude-2</id>
         <link href="https://www.ga0x.com/blog/2023/08/03/claude-2"/>
         <updated>2023-08-03T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[最近谷歌却被爆出大规模投资了另一家新兴AI创业公司Anthropic,其重点产品是Claude这个AI系统。Claude是一个强大的大型语言模型,在处理中文和上下文对话方面表现不俗,还拥有写作、编程、解释概念和翻译等多方面的应用潜力。与ChatGPT类似,Claude也值得关注,是AI领域一个有潜力的新尝试。]]></summary>
-        <content type="html"><![CDATA[<div class="theme-admonition theme-admonition-tip admonition__YNK alert alert--success"><div class="admonitionHeading_fZlt"><span class="admonitionIcon_SdqK"><svg viewBox="0 0 12 16"><path fill-rule="evenodd" d="M6.5 0C3.48 0 1 2.19 1 5c0 .92.55 2.25 1 3 1.34 2.25 1.78 2.78 2 4v1h5v-1c.22-1.22.66-1.75 2-4 .45-.75 1-2.08 1-3 0-2.81-2.48-5-5.5-5zm3.64 7.48c-.25.44-.47.8-.67 1.11-.86 1.41-1.25 2.06-1.45 3.23-.02.05-.02.11-.02.17H5c0-.06 0-.13-.02-.17-.2-1.17-.59-1.83-1.45-3.23-.2-.31-.42-.67-.67-1.11C2.44 6.78 2 5.65 2 5c0-2.2 2.02-4 4.5-4 1.22 0 2.36.42 3.22 1.19C10.55 2.94 11 3.94 11 5c0 .66-.44 1.78-.86 2.48zM4 14h5c-.23 1.14-1.3 2-2.5 2s-2.27-.86-2.5-2z"></path></svg></span>转发</div><div class="admonitionContent_LdZV"><p>最近谷歌却被爆出大规模投资了另一家新兴AI创业公司Anthropic,其重点产品是Claude这个AI系统。Claude是一个强大的大型语言模型,在处理中文和上下文对话方面表现不俗,还拥有写作、编程、解释概念和翻译等多方面的应用潜力。与ChatGPT类似,Claude也值得关注,是AI领域一个有潜力的新尝试。</p></div></div>
+        <summary type="html"><![CDATA[本文写于 2023-08，描述的是 Claude 2.0 时代的情况，早已过时。]]></summary>
+        <content type="html"><![CDATA[<div class="theme-admonition theme-admonition-warning admonition__YNK alert alert--warning"><div class="admonitionHeading_fZlt"><span class="admonitionIcon_SdqK"><svg viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8.893 1.5c-.183-.31-.52-.5-.887-.5s-.703.19-.886.5L.138 13.499a.98.98 0 0 0 0 1.001c.193.31.53.501.886.501h13.964c.367 0 .704-.19.877-.5a1.03 1.03 0 0 0 .01-1.002L8.893 1.5zm.133 11.497H6.987v-2.003h2.039v2.003zm0-3.004H6.987V5.987h2.039v4.006z"></path></svg></span>时效性提示</div><div class="admonitionContent_LdZV"><p><strong>本文写于 2023-08，描述的是 Claude 2.0 时代的情况，早已过时。</strong></p><p>Claude 后续迭代到 3.x / 4 系列，注册方式、可用区域与定价均已完全不同。
+保留此文仅作个人存档，请勿照文中的步骤操作。</p></div></div>
+<div class="theme-admonition theme-admonition-tip admonition__YNK alert alert--success"><div class="admonitionHeading_fZlt"><span class="admonitionIcon_SdqK"><svg viewBox="0 0 12 16"><path fill-rule="evenodd" d="M6.5 0C3.48 0 1 2.19 1 5c0 .92.55 2.25 1 3 1.34 2.25 1.78 2.78 2 4v1h5v-1c.22-1.22.66-1.75 2-4 .45-.75 1-2.08 1-3 0-2.81-2.48-5-5.5-5zm3.64 7.48c-.25.44-.47.8-.67 1.11-.86 1.41-1.25 2.06-1.45 3.23-.02.05-.02.11-.02.17H5c0-.06 0-.13-.02-.17-.2-1.17-.59-1.83-1.45-3.23-.2-.31-.42-.67-.67-1.11C2.44 6.78 2 5.65 2 5c0-2.2 2.02-4 4.5-4 1.22 0 2.36.42 3.22 1.19C10.55 2.94 11 3.94 11 5c0 .66-.44 1.78-.86 2.48zM4 14h5c-.23 1.14-1.3 2-2.5 2s-2.27-.86-2.5-2z"></path></svg></span>转发</div><div class="admonitionContent_LdZV"><p>最近谷歌却被爆出大规模投资了另一家新兴AI创业公司Anthropic,其重点产品是Claude这个AI系统。Claude是一个强大的大型语言模型,在处理中文和上下文对话方面表现不俗,还拥有写作、编程、解释概念和翻译等多方面的应用潜力。与ChatGPT类似,Claude也值得关注,是AI领域一个有潜力的新尝试。</p></div></div>
 <h2 class="anchor anchorTargetStickyNavbar_GcoH" id="claude-20-大更新">Claude 2.0 大更新<a href="https://www.ga0x.com/blog/2023/08/03/claude-2#claude-20-%E5%A4%A7%E6%9B%B4%E6%96%B0" class="hash-link" aria-label="Claude 2.0 大更新的直接链接" title="Claude 2.0 大更新的直接链接" translate="no">​</a></h2>
 <p>Claude 2.0 目前依然在免费试用阶段,已经从 Slack 平台独立出来,直接在官网使用。据部分使用者反馈, Claude 1.x 的水平已与 GPT 3.5 相近, Claude 2.0 在语言理解能力上有所进步,是一款值得关注的新兴 AI 系统。使用 Claude 2.0 无需支付费用,目前还有一定的使用限制,但对开发者也开放了 API 。普通用户可以上传文档等给 Claude 2.0 阅读分析,每次最多5个文件。 Claude 2.0 在语言理解方面的表现确实不错,有望成为一款实用的AI助手。</p>
 <h2 class="anchor anchorTargetStickyNavbar_GcoH" id="claude-20-注册教程">Claude 2.0 注册教程<a href="https://www.ga0x.com/blog/2023/08/03/claude-2#claude-20-%E6%B3%A8%E5%86%8C%E6%95%99%E7%A8%8B" class="hash-link" aria-label="Claude 2.0 注册教程的直接链接" title="Claude 2.0 注册教程的直接链接" translate="no">​</a></h2>
@@ -186,8 +188,9 @@
         <id>https://www.ga0x.com/blog/2023/02/02/register-openai</id>
         <link href="https://www.ga0x.com/blog/2023/02/02/register-openai"/>
         <updated>2023-02-02T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[国内注册 ChatGPT 会出现提示 not available in your country 也就是你所在的国家无法注册  现在教你如何解决。]]></summary>
-        <content type="html"><![CDATA[<p>国内注册 <strong>ChatGPT</strong> 会出现提示 not available in your country 也就是你所在的国家无法注册  现在教你如何解决。</p>
+        <summary type="html"><![CDATA[本文写于 2023-02，文中方法早已失效（OpenAI 的注册与风控策略多次变更，代理方式也不再适用）。]]></summary>
+        <content type="html"><![CDATA[<div class="theme-admonition theme-admonition-warning admonition__YNK alert alert--warning"><div class="admonitionHeading_fZlt"><span class="admonitionIcon_SdqK"><svg viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8.893 1.5c-.183-.31-.52-.5-.887-.5s-.703.19-.886.5L.138 13.499a.98.98 0 0 0 0 1.001c.193.31.53.501.886.501h13.964c.367 0 .704-.19.877-.5a1.03 1.03 0 0 0 .01-1.002L8.893 1.5zm.133 11.497H6.987v-2.003h2.039v2.003zm0-3.004H6.987V5.987h2.039v4.006z"></path></svg></span>时效性提示</div><div class="admonitionContent_LdZV"><p><strong>本文写于 2023-02，文中方法早已失效</strong>（OpenAI 的注册与风控策略多次变更，代理方式也不再适用）。</p><p>保留此文仅作个人存档。如果你的目的是用上 AI 工具，请直接查阅 OpenAI 官方渠道当前的可用区域政策：</p></div></div>
+<p>国内注册 <strong>ChatGPT</strong> 会出现提示 not available in your country 也就是你所在的国家无法注册  现在教你如何解决。</p>
 <h2 class="anchor anchorTargetStickyNavbar_GcoH" id="需要">需要<a href="https://www.ga0x.com/blog/2023/02/02/register-openai#%E9%9C%80%E8%A6%81" class="hash-link" aria-label="需要的直接链接" title="需要的直接链接" translate="no">​</a></h2>
 <ol>
 <li class="">代理  注意不能是中国或香港，最好用 美国或者日本的</li>
@@ -572,8 +575,12 @@ Ncdu 是一个带有 ncurses 接口的磁盘使用分析器。 它旨在在您�
         <id>https://www.ga0x.com/blog/2021/11/01/jetbrains-crack</id>
         <link href="https://www.ga0x.com/blog/2021/11/01/jetbrains-crack"/>
         <updated>2021-11-01T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[img.png]]></summary>
-        <content type="html"><![CDATA[<p><img decoding="async" loading="lazy" alt="img.png" src="https://www.ga0x.com/assets/images/img-92c658b357bc2abf3b2ea9dfaba6f8da.png" width="1360" height="544" class="img_vWTs"></p>
+        <summary type="html"><![CDATA[这篇写于 2021 年，方法早已失效，请勿尝试。]]></summary>
+        <content type="html"><![CDATA[<div class="theme-admonition theme-admonition-danger admonition__YNK alert alert--danger"><div class="admonitionHeading_fZlt"><span class="admonitionIcon_SdqK"><svg viewBox="0 0 12 16"><path fill-rule="evenodd" d="M5.05.31c.81 2.17.41 3.38-.52 4.31C3.55 5.67 1.98 6.45.9 7.98c-1.45 2.05-1.7 6.53 3.53 7.7-2.2-1.16-2.67-4.52-.3-6.61-.61 2.03.53 3.33 1.94 2.86 1.39-.47 2.3.53 2.27 1.67-.02.78-.31 1.44-1.13 1.81 3.42-.59 4.78-3.42 4.78-5.56 0-2.84-2.53-3.22-1.25-5.61-1.52.13-2.03 1.13-1.89 2.75.09 1.08-1.02 1.8-1.86 1.33-.67-.41-.66-1.19-.06-1.78C8.18 5.31 8.68 2.45 5.05.32L5.03.3l.02.01z"></path></svg></span>内容已失效，且不建议照做</div><div class="admonitionContent_LdZV"><p><strong>这篇写于 2021 年，方法早已失效，请勿尝试。</strong></p><p>同时说明几点：文中涉及的破解方式<strong>违反 JetBrains 的许可协议</strong>，且我<strong>无法保证</strong>
+文中任何第三方链接的安全性——这类站点可能已易主、挂马或变成钓鱼页。
+JetBrains 官方对学生、教师、开源项目提供免费授权，请走正规渠道：
+<a href="https://www.jetbrains.com/community/education/" target="_blank" rel="noopener noreferrer" class="">jetbrains.com/community/education</a></p><p>保留此文仅作为个人技术记录存档，不代表推荐。</p></div></div>
+<p><img decoding="async" loading="lazy" alt="img.png" src="https://www.ga0x.com/assets/images/img-92c658b357bc2abf3b2ea9dfaba6f8da.png" width="1360" height="544" class="img_vWTs"></p>
 <div class="theme-admonition theme-admonition-tip admonition__YNK alert alert--success"><div class="admonitionHeading_fZlt"><span class="admonitionIcon_SdqK"><svg viewBox="0 0 12 16"><path fill-rule="evenodd" d="M6.5 0C3.48 0 1 2.19 1 5c0 .92.55 2.25 1 3 1.34 2.25 1.78 2.78 2 4v1h5v-1c.22-1.22.66-1.75 2-4 .45-.75 1-2.08 1-3 0-2.81-2.48-5-5.5-5zm3.64 7.48c-.25.44-.47.8-.67 1.11-.86 1.41-1.25 2.06-1.45 3.23-.02.05-.02.11-.02.17H5c0-.06 0-.13-.02-.17-.2-1.17-.59-1.83-1.45-3.23-.2-.31-.42-.67-.67-1.11C2.44 6.78 2 5.65 2 5c0-2.2 2.02-4 4.5-4 1.22 0 2.36.42 3.22 1.19C10.55 2.94 11 3.94 11 5c0 .66-.44 1.78-.86 2.48zM4 14h5c-.23 1.14-1.3 2-2.5 2s-2.27-.86-2.5-2z"></path></svg></span>提示</div><div class="admonitionContent_LdZV"><p>2022.2 以上建议直接用推荐方式激活(#通过agent+激活码方式1)</p></div></div>
 <h2 class="anchor anchorTargetStickyNavbar_GcoH" id="通过agent激活码方式1">通过agent+激活码方式1<a href="https://www.ga0x.com/blog/2021/11/01/jetbrains-crack#%E9%80%9A%E8%BF%87agent%E6%BF%80%E6%B4%BB%E7%A0%81%E6%96%B9%E5%BC%8F1" class="hash-link" aria-label="通过agent+激活码方式1的直接链接" title="通过agent+激活码方式1的直接链接" translate="no">​</a></h2>
 <ol>
@@ -710,8 +717,11 @@ Or
         <id>https://www.ga0x.com/blog/2020/07/31/rest-api-design</id>
         <link href="https://www.ga0x.com/blog/2020/07/31/rest-api-design"/>
         <updated>2020-07-31T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[本文建议读者：]]></summary>
-        <content type="html"><![CDATA[<p>本文建议读者：</p>
+        <summary type="html"><![CDATA[本文转载自 卡拉搜索 技术博客，原文作者为卡拉搜索团队，非本人原创。]]></summary>
+        <content type="html"><![CDATA[<div class="theme-admonition theme-admonition-warning admonition__YNK alert alert--warning"><div class="admonitionHeading_fZlt"><span class="admonitionIcon_SdqK"><svg viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8.893 1.5c-.183-.31-.52-.5-.887-.5s-.703.19-.886.5L.138 13.499a.98.98 0 0 0 0 1.001c.193.31.53.501.886.501h13.964c.367 0 .704-.19.877-.5a1.03 1.03 0 0 0 .01-1.002L8.893 1.5zm.133 11.497H6.987v-2.003h2.039v2.003zm0-3.004H6.987V5.987h2.039v4.006z"></path></svg></span>转载声明</div><div class="admonitionContent_LdZV"><p>本文转载自 <strong>卡拉搜索</strong> 技术博客，原文作者为卡拉搜索团队，<strong>非本人原创</strong>。
+原文链接：<a href="https://kalasearch.cn/blog/what-is-api" target="_blank" rel="noopener noreferrer" class="">kalasearch.cn/blog</a></p><p>正文中的「我们」「卡拉搜索」均为原文第一人称，指代原作者。此处仅作学习存档，
+并保留原文的完整论述以供参考。如有版权问题请联系我删除。</p></div></div>
+<p>本文建议读者：</p>
 <ul>
 <li class="">后端工程师、架构师</li>
 <li class="">需要跟后端协同的前端工程师</li>
