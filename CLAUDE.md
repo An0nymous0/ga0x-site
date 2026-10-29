@@ -48,8 +48,8 @@ openspec/               规格驱动开发目录（specs/ 为已归档能力基�
 ## 编码与内容约定
 
 - 站点语言为简体中文，`i18n.defaultLocale = 'zh-Hans'`。正文、导航标签、页脚文案一律中文（代码标识符除外）。
-- 内容 Markdown 里出现的 URL 字面量，**必须用尖括号包裹**：`<http://localhost:9090>`。裸 URL 紧跟中文标点会被现代 Node 的 URL 解析当作链接目标解析，端口解析失败会直接 fail 整个 build。这是本仓实际踩过的坑，见 `docs/kubernetes/prometheus-k8s-monitor.md`。
-- 不要在正文里使用 MDX v3 会误判为表达式的裸 `{` 或裸 `<`；需要字面显示时用反引号或 `\{` / `\<` 转义。
+- 内容 Markdown 里出现 URL 字面量时，**用显式链接 `[http://host:port](http://host:port)`**。裸 URL 紧跟中文标点会被当作链接目标解析，直接 fail 整个 build；而 MDX v3 已移除尖括号 autolink，`<http://...>` 与 `\<http://...>` 同样 fail。六种写法实测结论：裸 URL / `<url>` / `\<url>` 三种 build 直接失败；「URL 前后加空格」能过构建但渲染损坏成 `http9090`（丢失 `://localhost:` 整段）；反引号渲染完整但不可点击；只有 `[url](url)` 同时满足构建通过 + 渲染完整 + 可点击。详见 `openspec/changes/upgrade-docusaurus-310/design.md` 的 R8。本仓实际踩过这个坑：`docs/kubernetes/prometheus-k8s-monitor.md`。
+- 不要在正文里使用 MDX v3 会误判为表达式的裸 `{` 或裸 `<`；需要字面显示时用反引号包成行内代码，或 `\{` 转义。**`\<` 对 URL 无效**（见上一条）。
 - 新增依赖前先确认不用第三方替代方案能解决；这是个静态站，依赖体积和构建时间是硬成本。
 - `trailingSlash: false`，路由末不带斜杠。改动此项会改变全部已收录 URL，不要动。
 
@@ -57,9 +57,9 @@ openspec/               规格驱动开发目录（specs/ 为已归档能力基�
 
 改动必须满足以下全部条件才算完成，缺一不可：
 
-1. **`npx docusaurus-mdx-checker` 零错误** —— 44 个 MDX 文件全部编译通过。
-2. **`pnpm build` 退出码 0** —— 且输出含 `[SUCCESS] Generated static files in "build"`。
-3. **构建产物断言** —— 涉及页脚/导航的改动，必须 `grep build/index.html` 确认实际渲染结果，不能只看配置文件写了什么。
+1. **`pnpm build` 退出码 0** —— 且输出含 `[SUCCESS] Generated static files in "build"`。**这是唯一有效判据。**
+2. **`npx docusaurus-mdx-checker` 零错误** —— 只当第一道粗筛。**该工具对 URL 解析层与渲染层问题全部误报 SUCCESS**（2026-10-29 六个变体实测），不能单独作为验收依据。
+3. **构建产物断言** —— 涉及页脚/导航/内容的改动，必须 `grep build/` 下对应产物确认实际渲染结果，不能只看配置文件写了什么。注意 `trailingSlash: false` 下产物是 `build/docs/x/y.html` 而非 `build/docs/x/y/index.html`。
 4. **`git status` 干净** —— `node_modules`、`build`、`.docusaurus` 均已在 `.gitignore` 内，不应该出现在待提交列表里。
 5. **不动锁文件** —— 除非本次变更明确就是升级依赖，否则 `pnpm-lock.yaml` 必须保持 `git diff` 为空。
 
