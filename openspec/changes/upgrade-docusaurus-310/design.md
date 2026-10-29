@@ -52,15 +52,46 @@ React 19 移除了 `ReactDOM.render`、`findDOMNode`、string refs 等。Docusau
 **处置**：构建成功是必要非充分条件——必须额外检查 `src/` 下是否有上述 API 的直接调用，并用 `docusaurus serve` 起本地服务实访首页确认渲染无异常。
 
 ### R3 Algolia key 与索引状态（已实测排除）
-
 2026-10-29 用用户提供的完整 key `30fbc18f2e759a30181abc05eebe23b7` 直连 Algolia API 实测：`HTTP 200`，`kubernetes` 命中 36 条，返回的 URL 指向 `www.ga0x.com` 的真实页面。**索引侧是健康的，本次故障纯为前端 key 被截断。**
 
 **处置**：换 key 即可，无需重建索引。验收仍须实打一次查询确认，防止后续索引侧漂移。
 
-### R4 `.npmrc` 的 `hoist`/`public-hoist-pattern` 在 pnpm 10 下的语义
+### R4 `.npmrc` 的 hoist 设置（已被 R6 取代为真实根因）
 
-仓内 `.npmrc` 有 `hoist=false` 与 `public-hoist-pattern[]=@docusaurus/theme-common*`。pnpm 10 仍支持这两项，但 `hoist=false` 与 ideal-image 插件对 `sharp` 的可选依赖解析可能组合出问题。
-**处置**：不改 `.npmrc`（不属于本次范围），若 pnpm 10 安装后构建报模块解析错误，优先怀疑此项，届时单列处理。
+仓内 `.npmrc` 有 `hoist=false` 与 `public-hoist-pattern[]=@docusaurus/theme-common*`。pnpm 10 仍支持这两项。实测构建失败的真实根因不是 hoist，而是 R6——保留此条仅作排查顺序记录，不需要改 `.npmrc`。
+
+### R6 pnpm 10 默认拦截依赖构建脚本（2026-10-29 实测暴露）
+
+pnpm 10 起默认不执行依赖的 `postinstall`（`onlyBuiltDependencies` 白名单机制）。`sharp` 的 native 二进制因此不会生成，构建报 `Could not load the "sharp" module using the darwin-arm64 runtime`，即使包已安装。
+**处置**：在 `package.json` 加 `pnpm.onlyBuiltDependencies: ["sharp"]`。优先放 package.json 而非 `pnpm-workspace.yaml`——后者会额外引入一个 workspace 定义文件，改变 pnpm 的项目类型判定。
+**为何设计阶段没抓到**：本机全局 pnpm 是 12，而旧仓从未在 pnpm 10 下装过；这是版本换代带来的新默认值，不是既有配置的问题。
+
+### R7 swizzle 组件跨版本迁移（2026-10-29 实测暴露）
+
+`src/theme/BlogPostPage/index.js` 与 `src/theme/DocItem/index.js` 是从旧版 swizzle 出来的（giscus 评论区宿体），引用了 3.10.2 已变更的模块。实测核实：
+- `@theme/Unlisted` 已不存在，theme-classic 3.10.2 提供的是 `@theme/ContentVisibility`
+- `@docusaurus/theme-common/internal` 在 3.10.2 中 `useBlogPost` 出现次数为 **0**，已迁至 `@docusaurus/plugin-content-blog/lib/client`
+- 上游 `BlogPostPage` 新增了 `@theme/BlogPostPage/StructuredData`，旧 swizzle 没有
+
+**处置**：最小迁移（只改 import 与补缺失子组件），不重跑 swizzle。理由是 giscus 逻辑是本仓唯一自定义产物，重跑 swizzle 需手工重新拼接，风险高于收益。
+**为何设计阶段没抓到**：设计阶段只扫了 `src/` 是否有 React 19 废弃 API，没扫 `src/theme/` 的 Docusaurus 内部模块引用——这是设计的一个盲区（假定 swizzle 组件跨小版本兼容）。
+
+### R8 MDX v3 已移除尖括号 autolink（推翻 design 初版方案）
+
+design 初版把「尖括号包裹 URL」列为修法，理由是保留可点击性。**2026-10-29 实测证伪**：`<http://localhost:9090>` 与 `\<http://localhost:9090>` 在 3.10.2 下均 fail build（MDX v3 移除了 GFM autolink 的尖括号语法，`<` 一律按 JSX 解析）。
+六种写法实测结果：
+
+| 写法 | build | 渲染 | 可点击 |
+|---|---|---|---|
+| 原样裸 URL | ✗ fail | — | — |
+| `<url>` | ✗ fail | — | — |
+| `\<url>` | ✗ fail | — | — |
+| `url` 前后加空格 | ✓ pass | **损坏**（`http9090`，丢失 `://localhost:`） | ✗ |
+| `` `url` `` 反引号 | ✓ pass | 完整 `<code>` | ✗ |
+| `[url](url)` 显式链接 | ✓ pass | 完整 `<a href>` | ✓ |
+
+**处置**：选显式 Markdown 链接。唯一同时满足「构建通过 + 渲染完整 + 可点击」的写法。
+**注意 `docusaurus-mdx-checker` 对以上 6 种全部报 SUCCESS**——它只做 MDX 语法层探测，抓不到 URL 解析与渲染层问题。验收判据必须是真实 `docusaurus build` + 产物 grep，不能依赖 checker。
 
 ### R5 全站视觉回归无自动化
 
@@ -71,17 +102,18 @@ React 19 移除了 `ReactDOM.render`、`findDOMNode`、string refs 等。Docusau
 
 | 编号 | 判据 | 命令/方法 |
 |---|---|---|
-| V1 | MDX 兼容性零错误 | `npx docusaurus-mdx-checker` |
-| V2 | 生产构建成功 | `pnpm build`，检查 `build/` 生成 |
+| V1 | MDX 兼容性零错误 | `npx docusaurus-mdx-checker`。**注意：此工具对 URL 层问题会误报 SUCCESS，不能单独作为判据** |
+| V2 | 生产构建成功 | `pnpm build`，检查 `build/` 生成。**这才是 URL 类问题的真实判据** |
 | V3 | 页脚正确 | grep `build/index.html` 的 `footer__copyright`，断言含 `Maxgao`、当前年份、`京ICP备19047090号`、`beian.miit.gov.cn`，断言**不含** `My Project` 与 `Built with Docusaurus` |
 | V4 | 备案号全站存在 | 对 `build/` 下所有 html 计数，断言每个都有 1 处备案号 |
-| V5 | Algolia key 有效 | `curl -X POST https://LOUOXZQ42U-dsn.algolia.net/1/indexes/<index>/query` 带新 key，断言非 403 |
-| V6 | 版本落地 | `grep` `package.json` 断言 docusaurus 系列为 `3.10.2`、react 为 `^19`、`packageManager` 存在、`engines.node` 为 `>=20`；`cat .nvmrc` |
+| V5 | Algolia key 有效 | `curl -X POST https://LOUOXZQ42U-dsn.algolia.net/1/indexes/ga0x/query` 带新 key，断言非 403 且 `nbHits > 0` |
+| V6 | 版本落地 | `grep` `package.json` 断言 docusaurus 系列为 `3.10.2`、react 为 `^19`、`packageManager` 存在、`engines.node` 为 `>=20`、`pnpm.onlyBuiltDependencies` 含 `sharp`；`cat .nvmrc` |
 | V7 | 锁文件干净 | 干净状态下 `pnpm install --frozen-lockfile` 后 `git status` 无改动 |
-| V8 | 坏 URL 已修 | `grep` 该行断言两个 URL 都被尖括号包裹，且 `locahost` 已改 `localhost` |
+| V8 | 坏 URL 已修且渲染正确 | `npx docusaurus build` 成功；产物中该段落含两个可点击 `<a href="http://localhost:9090"` 与 `<a href="http://localhost:8080"` |
 | V9 | workflow 一致 | 两个 yml 的 setup-node 都用 `node-version-file` 且 `cache: pnpm`，均无 `yarn` 残留，`checkout@v4`/`setup-node@v4` |
 | V10 | CI 真跑通 | push 后 `gh run watch`，PR workflow 与 deploy workflow 均 success |
 | V11 | 线上生效 | 合并后 curl `https://www.ga0x.com/` 断言页脚含新文案 |
+| V12 | swizzle 组件存活 | 产物中 blog 与 docs 页面均存在 giscus 容器元素 |
 
 ## 清理与回滚
 

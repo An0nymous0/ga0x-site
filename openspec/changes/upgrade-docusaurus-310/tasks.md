@@ -2,7 +2,7 @@
 
 ## 1. 内容兼容性（先行，解除构建阻塞）
 
-- [ ] 1.1 修 `docs/kubernetes/prometheus-k8s-monitor.md:48` 的两个裸 URL。给 `http://localhost:9090` 与 `http://locahost:8080` 各包一对尖括号，同时把 `locahost` 拼写改为 `localhost`。验证：`grep -n "localhost:9090" docs/kubernetes/prometheus-k8s-monitor.md` 显示 `<http://localhost:9090>、<http://localhost:8080>`，且该文件不再出现 `locahost`。
+- [ ] 1.1 修 `docs/kubernetes/prometheus-k8s-monitor.md:48` 的两个裸 URL。**改用显式 Markdown 链接**：`[http://localhost:9090](http://localhost:9090)` 与 `[http://localhost:8080](http://localhost:8080)`，同时把 `locahost` 拼写改为 `localhost`。**不要用尖括号 `<...>`，MDX v3 已移除该 autolink 语法**（2026-10-29 实测：`<http://...>` 与 `\<http://...>` 均 fail build）。不要用「URL 前后加空格」——实测渲染丢失 `://localhost:` 变成 `http9090`。不要用反引号——渲染正确但失去可点击性。验证：`npx docusaurus build` 成功，且 build 产物中该段落含两个 `<a href="http://localhost:9090"` / `<a href="http://localhost:8080"` 的可点击链接。
 - [ ] 1.2 全量 MDX 兼容性探测。验证：`npx docusaurus-mdx-checker` 输出 `[SUCCESS] All 44 MDX files compiled successfully!`，退出码 0。
 
 ## 2. 工具链与依赖
@@ -11,7 +11,9 @@
 - [ ] 2.2 新建 `.nvmrc`，内容为 `20`（单行，无换行符差异要求）。验证：`cat .nvmrc` 输出 `20`。
 - [ ] 2.3 升级 `dependencies` 与 `devDependencies`：所有 `@docusaurus/*` 含 `@docusaurus/core`、`preset-classic`、`plugin-google-gtag`、`plugin-ideal-image`、`module-type-aliases`、`types` 一律 `3.10.2`；`react`/`react-dom` 改 `^19.0.0`；`@mdx-js/react` 改 `^3.1.1`；`clsx` 改 `^2.1.1`；`prism-react-renderer` 改 `^2.4.1`。验证：`node -e "const p=require('./package.json');const all={...p.dependencies,...p.devDependencies};console.log(all['@docusaurus/core'],all.react,all['@mdx-js/react'],all.clsx,all['prism-react-renderer'])"` 输出 `3.10.2 ^19.0.0 ^3.1.1 ^2.1.1 ^2.4.1`。
 - [ ] 2.4 删除旧 `pnpm-lock.yaml` 后用 pnpm 10 重新生成。验证：`head -1 pnpm-lock.yaml` 输出 `lockfileVersion: '9.0'`；`npx -y pnpm@10.34.9 install --frozen-lockfile` 退出码 0 且 `git status --short` 无文件改动。
-- [ ] 2.5 确认 `src/` 下无 React 19 移除的 API。验证：`grep -rn "findDOMNode\|ReactDOM.render\|componentWillMount\|componentWillReceiveProps\|string ref" src/ blog/ docs/` 无命中（0 行输出）。
+- [ ] 2.5 确认 `src/` 下无 React 19 移除的 API。验证：`grep -rn "findDOMNode\|ReactDOM.render\|componentWillMount\|componentWillReceiveProps" src/ blog/ docs/` 无命中（0 行输出）。
+- [ ] 2.6 批准 pnpm 10 默认拦截的依赖构建脚本。pnpm 10 起默认不跑依赖的 postinstall，`sharp` 的 native 二进制不会生成，构建报 `Could not load the "sharp" module using the darwin-arm64 runtime`。在 `package.json` 加 `pnpm.onlyBuiltDependencies: ["sharp"]`（或 `pnpm-workspace.yaml` 同名字段，二选一，优先 package.json 以免引入 workspace 文件）。验证：`pnpm build` 不再报 sharp 加载失败。
+- [ ] 2.7 迁移 swizzle 出的两个 theme 组件到 3.10.2 API（`tasks.md` 初版遗漏，2026-10-29 构建暴露）。`src/theme/BlogPostPage/index.js`：`@theme/Unlisted` → `@theme/ContentVisibility`（渲染 `<ContentVisibility metadata={metadata} />`）、`@docusaurus/theme-common/internal` 的 `BlogPostProvider`/`useBlogPost` → `@docusaurus/plugin-content-blog/client`、补 `@theme/BlogPostPage/StructuredData`。`src/theme/DocItem/index.js` 同样核对是否有 3.10.2 已迁移的 import。**必须保留 giscus 评论区逻辑**，这是这两个文件存在的唯一理由。验证：`pnpm build` 成功且 `build/blog/**/index.html` 与 `build/docs/**/index.html` 中 giscus 容器元素存在。
 
 ## 3. 站点配置
 
