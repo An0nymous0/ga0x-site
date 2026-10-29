@@ -26,6 +26,26 @@ const config = {
 
   onBrokenLinks: 'throw',
 
+  // 尾斜杠归一化兜底（内联、阻塞式，在 hydration 之前执行）。
+  //
+  // 背景：本站 trailingSlash: false，规范 URL 不带尾斜杠（sitemap 里全部如此）。
+  // 但 GitHub Pages 是纯静态托管，请求 /blog/ 时会先看有没有 build/blog/ 目录——
+  // blog/ 目录存在（存年份归档），里面没有 index.html，于是直接返回 404.html。
+  // /docs/ 同理。GitHub Pages 不支持服务端重定向规则，只能在客户端兜底。
+  //
+  // 放在 headTags 而不是 404 组件的 useEffect：后者要等 JS bundle 水合才跑，
+  // 中间有一段空窗；headTags 是 render-blocking 的，第一时间执行。
+  headTags: [
+    {
+      tagName: 'script',
+      attributes: {type: 'text/javascript'},
+      innerHTML: `(function(){try{var p=location.pathname;
+if(p.length>1&&p.charAt(p.length-1)==="/"){
+location.replace(p.replace(/\\/+$/,"")+location.search+location.hash);}
+}catch(e){}})();`,
+    },
+  ],
+
   markdown: {
     hooks: {
       onBrokenMarkdownLinks: 'warn',
@@ -76,9 +96,18 @@ const config = {
   themeConfig:
   /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
-      metadata: [{name: 'keywords', content: 'blog, 科技, 技术, 代码分享'}],
-      // Replace with your project's social card
-      image: 'img/docusaurus-social-card.jpg',
+      metadata: [
+        {name: 'keywords', content: 'blog, 科技, 技术, 代码分享'},
+        // 站点级默认 description。此前缺失，导致所有未写 frontmatter description 的
+        // 页面输出模板默认值 "Description will go into a meta tag in <head />"。
+        {
+          name: 'description',
+          content: '高旭（Maxgao）的技术笔记：Kubernetes、Java、Linux 运维实践与架构决策记录。',
+        },
+      ],
+      // 社交预览图。原值为 img/docusaurus-social-card.jpg，但该文件在仓库中
+      // 从未存在过（og:image 长期 404），已替换为自建卡片。
+      image: 'img/social-card.jpg',
       navbar: {
         title: 'Maxgao',
         logo: {

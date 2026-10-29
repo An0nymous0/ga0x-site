@@ -4,6 +4,19 @@ authors: gaoxu
 tags: [JetBrains, IDE]
 ---
 
+:::danger 内容已失效，且不建议照做
+
+**这篇写于 2021 年，方法早已失效，请勿尝试。**
+
+同时说明几点：文中涉及的破解方式**违反 JetBrains 的许可协议**，且我**无法保证**
+文中任何第三方链接的安全性——这类站点可能已易主、挂马或变成钓鱼页。
+JetBrains 官方对学生、教师、开源项目提供免费授权，请走正规渠道：
+[jetbrains.com/community/education](https://www.jetbrains.com/community/education/)
+
+保留此文仅作为个人技术记录存档，不代表推荐。
+
+:::
+
 ![img.png](img.png)
 
 :::tip
