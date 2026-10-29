@@ -31,17 +31,25 @@ const config = {
   // 背景：本站 trailingSlash: false，规范 URL 不带尾斜杠（sitemap 里全部如此）。
   // 但 GitHub Pages 是纯静态托管，请求 /blog/ 时会先看有没有 build/blog/ 目录——
   // blog/ 目录存在（存年份归档），里面没有 index.html，于是直接返回 404.html。
-  // /docs/ 同理。GitHub Pages 不支持服务端重定向规则，只能在客户端兜底。
   //
-  // 放在 headTags 而不是 404 组件的 useEffect：后者要等 JS bundle 水合才跑，
-  // 中间有一段空窗；headTags 是 render-blocking 的，第一时间执行。
+  // ⚠️ 必须带循环保护：不是所有目录都有对应的 X.html。
+  //   - /blog  -> 有 build/blog.html，GH Pages 直接 200  -> 跳转成立
+  //   - /docs  -> 没有 build/docs.html，GH Pages 会 301 到 /docs/
+  //               -> 脚本再跳回 /docs -> 301 回 /docs/ -> 无限循环
+  // 所以用 sessionStorage 记一个"本会话已为该路径尝试过跳转"的标记：
+  // 第一次跳，第二次（发现又回到同一带斜杠路径）就放弃，正常渲染 404。
+  //
+  // 放在 headTags 而不是 404 组件的 useEffect：后者要等 JS bundle 水合才跑。
   headTags: [
     {
       tagName: 'script',
       attributes: {type: 'text/javascript'},
-      innerHTML: `(function(){try{var p=location.pathname;
-if(p.length>1&&p.charAt(p.length-1)==="/"){
-location.replace(p.replace(/\\/+$/,"")+location.search+location.hash);}
+      innerHTML: `(function(){try{
+var p=location.pathname;
+if(p.length<=1||p.charAt(p.length-1)!=="/")return;
+var k="ts-redir:"+p;
+try{if(sessionStorage.getItem(k))return;sessionStorage.setItem(k,"1");}catch(e){return;}
+location.replace(p.replace(/\\/+$/,"")+location.search+location.hash);
 }catch(e){}})();`,
     },
   ],
