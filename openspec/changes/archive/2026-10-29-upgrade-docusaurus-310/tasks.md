@@ -36,11 +36,11 @@
 
 ## 6. 提交与 CI 验证
 
-- [ ] 6.1 在 `upgrade/docusaurus-310` 分支提交全部改动（含 `openspec/` 与 `.claude/` 骨架）。验证：`git status --short` 干净，`git log --oneline -1` 显示本次提交且 `git diff main --stat` 只含预期文件。
-- [ ] 6.2 push 分支并建 PR。验证：`gh pr view --json number,url` 返回编号与 URL。
-- [ ] 6.3 等 PR workflow 结束。验证：`gh pr checks` 中 Test deployment 状态为 `pass`。
-- [ ] 6.4 合并后等 deploy workflow。验证：`gh run watch <id>` 成功，`git fetch origin gh-pages` 后 `git show origin/gh-pages:index.html` 含 `Maxgao` 与备案号。
-- [ ] 6.5 线上验证。验证：`curl -s "https://www.ga0x.com/?v=$(date +%s)"` 的页脚含 `Maxgao` 与 `京ICP备19047090号`，不含 `My Project`。
+- [x] 6.1 在 `upgrade/docusaurus-310` 分支提交全部改动（含 `openspec/` 与 `.claude/` 骨架）。验证：`git status --short` 干净，`git log --oneline -1` 显示本次提交且 `git diff main --stat` 只含预期文件。
+- [x] 6.2 push 分支并建 PR。验证：`gh pr view --json number,url` 返回编号与 URL。
+- [x] 6.3 等 PR workflow 结束。验证：`gh pr checks` 中 Test deployment 状态为 `pass`。
+- [x] 6.4 合并后等 deploy workflow。验证：`gh run watch <id>` 成功，`git fetch origin gh-pages` 后 `git show origin/gh-pages:index.html` 含 `Maxgao` 与备案号。
+- [x] 6.5 线上验证。验证：`curl -s "https://www.ga0x.com/?v=$(date +%s)"` 的页脚含 `Maxgao` 与 `京ICP备19047090号`，不含 `My Project`。
 
 ## 7. 外部未就绪项如实登记
 
